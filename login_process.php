@@ -14,13 +14,13 @@ if (empty($Munm)) {
     echo "Please Enter Your Password";
 } else {
 
-    $rs1 = Database::search("SELECT * FROM admin WHERE username='" . $Munm . "' AND password='" . $Mpswd . "';");
+    $rs1 = Database::search("SELECT * FROM patient WHERE uname='" . $Munm . "' AND pass='" . $Mpswd . "';");
 
     // echo $rs->num_rows;
 
     if ($rs1->num_rows > 0) {
 
-        $_SESSION["AD"] = $rs1->fetch_assoc();
+        $_SESSION["PT"] = $rs1->fetch_assoc();
 
         if ($Mrm == "true") {
             setcookie("mun", $Munm, time() + (60 * 60 * 24 * 365));
