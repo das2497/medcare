@@ -1,0 +1,29 @@
+.body {
+    background: linear-gradient(104deg, rgba(255, 255, 255, 1) 0%, rgba(255, 200, 80, 1) 100%);
+    background-color: rgb(255, 255, 255);
+}
+
+.aboutBtn {
+    width: 200px;
+    height: 40px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border: 1px solid rgb(255, 123, 0);
+    border-radius: 20px;
+    background: linear-gradient(24deg, rgb(245, 90, 0) 0%, rgb(255, 174, 0) 100%);
+}
+
+@media (max-width: 992px) and (orientation:portrait) {
+    .logo {
+        display: block;
+        position: relative;
+        width: 200px;
+    }
+}
+
+.small {
+    color: rgb(255, 11, 11);
+    font-weight: bold;
+    margin-left: 10px;
+}
