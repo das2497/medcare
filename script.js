@@ -70,7 +70,6 @@ function THdash() {
     document.getElementById("THprofile").style.display = "none";
     document.getElementById("THlessons").style.display = "none";
     document.getElementById("THassignments").style.display = "none";
-    document.getElementById("THanswers").style.display = "none";
 }
 
 function THprofile() {
@@ -78,7 +77,6 @@ function THprofile() {
     document.getElementById("THprofile").style.display = "block";
     document.getElementById("THlessons").style.display = "none";
     document.getElementById("THassignments").style.display = "none";
-    document.getElementById("THanswers").style.display = "none";
 }
 
 function THstudents() {
@@ -86,7 +84,6 @@ function THstudents() {
     document.getElementById("THprofile").style.display = "none";
     document.getElementById("THlessons").style.display = "none";
     document.getElementById("THassignments").style.display = "none";
-    document.getElementById("THanswers").style.display = "none";
 }
 
 function THChannel() {
@@ -94,7 +91,6 @@ function THChannel() {
     document.getElementById("THprofile").style.display = "none";
     document.getElementById("THlessons").style.display = "block";
     document.getElementById("THassignments").style.display = "none";
-    document.getElementById("THanswers").style.display = "none";
 }
 
 function THReports() {
@@ -102,7 +98,6 @@ function THReports() {
     document.getElementById("THprofile").style.display = "none";
     document.getElementById("THlessons").style.display = "none";
     document.getElementById("THassignments").style.display = "block";
-    document.getElementById("THanswers").style.display = "none";
 }
 
 

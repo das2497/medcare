@@ -4,7 +4,7 @@ session_start();
 
 require 'connection.php';
 
-if (isset($_SESSION["AD"])) {
+if (isset($_SESSION["PT"])) {
 
 
 ?>
