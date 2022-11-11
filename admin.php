@@ -64,10 +64,10 @@ if (isset($_SESSION["AD"])) {
                                                 <a class="nav-link fw-bold d-block d-lg-none text-white" aria-current="page" href="#">Profile</a>
                                             </li>
                                             <li class="nav-item" onclick="THChannel();">
-                                                <a class="nav-link fw-bold d-block d-lg-none text-white" aria-current="page" href="#">Lessons</a>
+                                                <a class="nav-link fw-bold d-block d-lg-none text-white" aria-current="page" href="#">Doctor Channel</a>
                                             </li>
                                             <li class="nav-item" onclick="THReports();">
-                                                <a class="nav-link fw-bold d-block d-lg-none text-white" aria-current="page" href="#">Assingments</a>
+                                                <a class="nav-link fw-bold d-block d-lg-none text-white" aria-current="page" href="#">Lab Reports</a>
                                             </li>
                                             <hr class="my-1 text-white border border-bottom ">
                                             <li>
@@ -150,7 +150,7 @@ if (isset($_SESSION["AD"])) {
 
                                 <!-- ==========lessons============================================================================================= -->
                                 <div class="col-12" id="THlessons" style="display: none;">
-                                    <h1>Lessons</h1>
+                                    <h1>Doctor Channel</h1>
 
 
                                 </div>
@@ -158,19 +158,11 @@ if (isset($_SESSION["AD"])) {
 
                                 <!-- ==========assignments============================================================================================= -->
                                 <div class="col-12" id="THassignments" style="display: none;">
-                                    <h1>Assingments</h1>
+                                    <h1>Lab Reports</h1>
 
 
                                 </div>
                                 <!-- ==========assignments================================================================================== -->
-
-                                <!-- ==========answers=============================================================================================  -->
-                                <div class="col-12" id="THanswers" style="display: none;">
-                                    <h1>Answers</h1>
-
-
-                                </div>
-                                <!-- ==========answers================================================================================== -->
 
                             </div>
 
