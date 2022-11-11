@@ -41,13 +41,13 @@ function Mlogin() {
                 MunmSM.style.display = "none";
                 MpswdSM.innerHTML = text;
                 MpswdSM.style.display = "inline";
-            } else if (text == "success") {
+            } else if (text == "2") {
                 MunmSM.style.display = "none";
                 MpswdSM.style.display = "none";
                 MtitleSM.innerHTML = text;
                 MtitleSM.style.color = "green";
                 MtitleSM.style.display = "inline";
-                window.location = "admin.php";
+                window.location = "patient.php";
             } else {
                 MunmSM.style.display = "none";
                 MpswdSM.style.display = "none";

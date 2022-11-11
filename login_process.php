@@ -27,7 +27,7 @@ if (empty($Munm)) {
             setcookie("mpswd", $Mpswd, time() + (60 * 60 * 24 * 365));
         }
 
-        echo "success";
+        echo "2";
     } else {
         echo "Invalid User Details";
     }
