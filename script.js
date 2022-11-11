@@ -97,7 +97,7 @@ function THlessons() {
     document.getElementById("THanswers").style.display = "none";
 }
 
-function THassingmnts() {
+function THassignment() {
     document.getElementById("THdash").style.display = "none";
     document.getElementById("THprofile").style.display = "none";
     document.getElementById("THlessons").style.display = "none";
@@ -105,7 +105,7 @@ function THassingmnts() {
     document.getElementById("THanswers").style.display = "none";
 }
 
-function THanswrs() {
+function THanswers() {
     document.getElementById("THdash").style.display = "none";
     document.getElementById("THprofile").style.display = "none";
     document.getElementById("THlessons").style.display = "none";

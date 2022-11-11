@@ -18,7 +18,7 @@ if (isset($_SESSION["AD"])) {
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <title>MEDCARE MEDICAL CENTER | PATIENT ACCOUNT</title>
+        <title>MEDCARE MEDICAL CENTER | PATIENT ACCOUNT.......</title>
         <link rel="icon" href="assets/Untitled (800 × 800 px).svg">
 
         <link rel="stylesheet" href="style.css">
@@ -66,7 +66,7 @@ if (isset($_SESSION["AD"])) {
                                             <li class="nav-item" onclick="THlessons();">
                                                 <a class="nav-link fw-bold d-block d-lg-none text-white" aria-current="page" href="#">Lessons</a>
                                             </li>
-                                            <li class="nav-item" onclick="THassignments();">
+                                            <li class="nav-item" onclick="THassignment();">
                                                 <a class="nav-link fw-bold d-block d-lg-none text-white" aria-current="page" href="#">Assingments</a>
                                             </li>
                                             <li class="nav-item" onclick="THanswers();">
@@ -117,7 +117,7 @@ if (isset($_SESSION["AD"])) {
                                                 <a href="#submenu2" data-bs-toggle="collapse" class="nav-link px-0 align-middle ">
                                                     <i class="fs-4 bi-bootstrap"></i> <span class="ms-1 d-none d-sm-inline text-white">Lessons</span></a>
                                             </li>
-                                            <li onclick="THassignments();">
+                                            <li onclick="THassignment();">
                                                 <a href="#submenu2" data-bs-toggle="collapse" class="nav-link px-0 align-middle ">
                                                     <i class="fs-4 bi-bootstrap"></i> <span class="ms-1 d-none d-sm-inline text-white">Assingments</span></a>
                                             </li>
