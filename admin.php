@@ -63,14 +63,11 @@ if (isset($_SESSION["AD"])) {
                                             <li class="nav-item" onclick="THprofile();">
                                                 <a class="nav-link fw-bold d-block d-lg-none text-white" aria-current="page" href="#">Profile</a>
                                             </li>
-                                            <li class="nav-item" onclick="THlessons();">
+                                            <li class="nav-item" onclick="THChannel();">
                                                 <a class="nav-link fw-bold d-block d-lg-none text-white" aria-current="page" href="#">Lessons</a>
                                             </li>
-                                            <li class="nav-item" onclick="THassignment();">
+                                            <li class="nav-item" onclick="THReports();">
                                                 <a class="nav-link fw-bold d-block d-lg-none text-white" aria-current="page" href="#">Assingments</a>
-                                            </li>
-                                            <li class="nav-item" onclick="THanswers();">
-                                                <a class="nav-link fw-bold d-block d-lg-none text-white" aria-current="page" href="#">Answers</a>
                                             </li>
                                             <hr class="my-1 text-white border border-bottom ">
                                             <li>
@@ -113,17 +110,13 @@ if (isset($_SESSION["AD"])) {
                                                 <a href="#" class="nav-link px-0 align-middle">
                                                     <i class="fs-4 bi-table"></i> <span class="ms-1 d-none d-sm-inline text-white">Profile</span></a>
                                             </li>
-                                            <li onclick="THlessons();">
+                                            <li onclick="THChannel();">
                                                 <a href="#submenu2" data-bs-toggle="collapse" class="nav-link px-0 align-middle ">
-                                                    <i class="fs-4 bi-bootstrap"></i> <span class="ms-1 d-none d-sm-inline text-white">Lessons</span></a>
+                                                    <i class="fs-4 bi-bootstrap"></i> <span class="ms-1 d-none d-sm-inline text-white">Doctor Channel</span></a>
                                             </li>
-                                            <li onclick="THassignment();">
+                                            <li onclick="THReports();">
                                                 <a href="#submenu2" data-bs-toggle="collapse" class="nav-link px-0 align-middle ">
-                                                    <i class="fs-4 bi-bootstrap"></i> <span class="ms-1 d-none d-sm-inline text-white">Assingments</span></a>
-                                            </li>
-                                            <li onclick="THanswers();">
-                                                <a href="#submenu2" data-bs-toggle="collapse" class="nav-link px-0 align-middle ">
-                                                    <i class="fs-4 bi-bootstrap"></i> <span class="ms-1 d-none d-sm-inline text-white">Answers</span></a>
+                                                    <i class="fs-4 bi-bootstrap"></i> <span class="ms-1 d-none d-sm-inline text-white">Lab Reports</span></a>
                                             </li>
                                         </ul>
                                     </div>

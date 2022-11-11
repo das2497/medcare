@@ -89,7 +89,7 @@ function THstudents() {
     document.getElementById("THanswers").style.display = "none";
 }
 
-function THlessons() {
+function THChannel() {
     document.getElementById("THdash").style.display = "none";
     document.getElementById("THprofile").style.display = "none";
     document.getElementById("THlessons").style.display = "block";
@@ -97,7 +97,7 @@ function THlessons() {
     document.getElementById("THanswers").style.display = "none";
 }
 
-function THassignment() {
+function THReports() {
     document.getElementById("THdash").style.display = "none";
     document.getElementById("THprofile").style.display = "none";
     document.getElementById("THlessons").style.display = "none";
@@ -105,12 +105,5 @@ function THassignment() {
     document.getElementById("THanswers").style.display = "none";
 }
 
-function THanswers() {
-    document.getElementById("THdash").style.display = "none";
-    document.getElementById("THprofile").style.display = "none";
-    document.getElementById("THlessons").style.display = "none";
-    document.getElementById("THassignments").style.display = "none";
-    document.getElementById("THanswers").style.display = "block";
-}
 
 //=================================admin==============================================================
