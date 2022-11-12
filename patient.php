@@ -137,6 +137,8 @@ if (isset($_SESSION["PT"])) {
                                 <div class="col-12" id="THdash" style="display: block; ">
                                     <h1>Dashboard</h1>
 
+                                    
+
                                 </div>
                                 <!-- ==========dashboard================================================================================== -->
 
@@ -176,7 +178,7 @@ if (isset($_SESSION["PT"])) {
                                             <input type="text" class="form-control" placeholder="Password" value="<?php echo $_SESSION["PT"]["pass"]; ?>" id="THpass">
                                         </div>
 
-                                        <div class="col-10 offset-1 col-lg-2 offset-lg-5 d-grid mt-5 text-center">
+                                        <div class="col-10 offset-1 col-lg-4 offset-lg-4 d-grid mt-5">
                                             <button class="btn btn-primary profile-button" type="button" onclick="UpdateTeacherProfile();">Update Profile</button>
                                         </div>
                                     </div>
