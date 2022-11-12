@@ -8,7 +8,6 @@ require 'connection.php';
 ?>
 
 
-
 <table class=" table table-responsive shadow stdn mt-4">
     <thead>
         <tr>
