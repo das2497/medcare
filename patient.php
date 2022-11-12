@@ -210,7 +210,7 @@ if (isset($_SESSION["PT"])) {
 
                                     <div class="overflow-scroll " id="docchnl">
 
-                                        <table class=" table table-responsive shadow stdn mt-4">
+                                        <table class=" table table-responsive table-striped shadow table-hover mt-4">
                                             <thead>
                                                 <tr>
                                                     <th scope="col">Student Username</th>
@@ -226,7 +226,8 @@ if (isset($_SESSION["PT"])) {
                                                     $sd = $rs1->fetch_assoc();
 
                                                 ?>
-                                                    <td><?php echo $sd["name"]; ?></td>
+                                                    <tr class="alert-info">
+                                                        <td><?php echo $sd["name"]; ?></td>
                                                     </tr>
 
                                                 <?php
