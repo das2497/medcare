@@ -146,22 +146,34 @@ if (isset($_SESSION["PT"])) {
 
                                     <div class="row pt-4">
                                         <div class="col-12 col-lg-6"><label class="labels">Username</label>
-                                            <input type="text" class="form-control" placeholder="Username" value="<?php echo $_SESSION["TH"]["uname"]; ?>" id="THuname">
+                                            <input type="text" class="form-control" placeholder="Username" value="<?php echo $_SESSION["PT"]["uname"]; ?>" id="THuname">
                                         </div>
                                         <div class="col-12 col-lg-6"><label class="labels">Full Name</label>
-                                            <input type="text" class="form-control" placeholder="Full Name" value="<?php echo $_SESSION["TH"]["full_name"]; ?>" id="THfulnm">
+                                            <input type="text" class="form-control" placeholder="Name" value="<?php echo $_SESSION["PT"]["name"]; ?>" id="THfulnm">
                                         </div>
-                                        <div class="col-md-12 col-lg-6"><label class="labels">Email</label>
-                                            <input type="text" class="form-control" placeholder="Email" value="<?php echo $_SESSION["TH"]["email"]; ?>" id="THemail">
+                                        <div class="col-md-12 col-lg-6"><label class="labels">Gender</label>
+                                            <input type="text" class="form-control" placeholder="Email" value="<?php echo $_SESSION["PT"]["gender_type"]; ?>" id="THemail">
+                                        </div>
+                                        <div class="col-md-12 col-lg-6"><label class="labels">N.I.C.</label>
+                                            <input type="text" class="form-control" placeholder="Email" value="<?php echo $_SESSION["PT"]["nic"]; ?>" id="THemail">
+                                        </div>
+                                        <div class="col-12 col-md-6"><label class="labels">Birthday</label>
+                                            <input type="text" class="form-control" placeholder="Grade" value="<?php echo $_SESSION["PT"]["dob"]; ?>">
+                                        </div>
+                                        <div class="col-12 col-md-6"><label class="labels">Address</label>
+                                            <input type="text" class="form-control" placeholder="Subject" value="<?php echo $_SESSION["PT"]["address"]; ?>">
+                                        </div>
+                                        <div class="col-12 col-md-6"><label class="labels">Contact</label>
+                                            <input type="text" class="form-control" placeholder="Subject" value="<?php echo $_SESSION["PT"]["contact"]; ?>">
+                                        </div>
+                                        <div class="col-12 col-md-6"><label class="labels">Responsible</label>
+                                            <input type="text" class="form-control" placeholder="Subject" value="<?php echo $_SESSION["PT"]["person"]; ?>">
+                                        </div>
+                                        <div class="col-12 col-md-6"><label class="labels">special Notes</label>
+                                            <textarea class="form-control" id="" cols="auto" rows="auto"><?php echo $_SESSION["PT"]["notes"]; ?></textarea>
                                         </div>
                                         <div class="col-md-12 col-lg-6"><label class="labels">Password</label>
-                                            <input type="text" class="form-control" placeholder="Password" value="<?php echo $_SESSION["TH"]["pass"]; ?>" id="THpass">
-                                        </div>
-                                        <div class="col-12 col-md-6"><label class="labels">Grade</label>
-                                            <input type="text" class="form-control" placeholder="Grade" value="<?php echo $_SESSION["TH"]["grade"]; ?>" readonly>
-                                        </div>
-                                        <div class="col-12 col-md-6"><label class="labels">Subject</label>
-                                            <input type="text" class="form-control" placeholder="Subject" value="<?php echo $_SESSION["TH"]["name"]; ?>" readonly>
+                                            <input type="text" class="form-control" placeholder="Password" value="<?php echo $_SESSION["PT"]["pass"]; ?>" id="THpass">
                                         </div>
 
                                         <div class="col-10 offset-1 col-lg-2 offset-lg-5 d-grid mt-5 text-center">
