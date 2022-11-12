@@ -190,6 +190,36 @@ if (isset($_SESSION["PT"])) {
                                 <div class="col-12" id="THlessons" style="display: none;">
                                     <h1>Doctor Channel</h1>
 
+                                    <div class="overflow-scroll ">
+                                        <table class=" table table-responsive shadow stdn mt-4">
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col">Student Username</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <?php
+
+                                                $rs1 = Database::search("SELECT doctor.id, doctor.uname, doctor.name, specialies.speciality, doctor.password FROM doctor INNER JOIN specialies ON doctor.specialty=specialies WHERE ;");
+                                                $sn = $rs1->num_rows;                                            
+
+                                                for ($i = 0; $i < $sn; $i++) {
+                                                    $sd = $rstbl->fetch_assoc();
+
+                                                ?>                                                   
+                                                        <td><?php echo $sd["full_name"]; ?></td>
+                                                    </tr>
+
+                                                <?php
+
+                                                }
+
+                                                ?>
+
+                                            </tbody>
+                                        </table>
+                                    </div>
+
 
                                 </div>
                                 <!-- ==========lessons================================================================================== -->
