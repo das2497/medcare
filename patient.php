@@ -179,7 +179,7 @@ if (isset($_SESSION["PT"])) {
                                         </div>
 
                                         <div class="col-10 offset-1 col-lg-4 offset-lg-4 d-grid mt-5">
-                                            <button class="btn btn-primary profile-button" type="button" onclick="UpdateTeacherProfile();">Update Profile</button>
+                                            <button class="btn btn-primary profile-button" type="button" onclick="">Update Profile</button>
                                         </div>
                                     </div>
 
