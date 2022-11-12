@@ -102,3 +102,26 @@ function THReports() {
 
 
 //=================================admin==============================================================
+
+function d_ch_slct() {
+    var specid = document.getElementById("dchnlspecility").value;
+
+
+    var f = new FormData();
+    f.append("specid", specid);
+
+    var r = new XMLHttpRequest();
+
+    r.onreadystatechange = function() {
+        if (r.readyState == 4) {
+            var text = r.responseText
+                //  alert(text);
+
+            document.getElementById("docchnl").innerHTML = text;
+
+        }
+    }
+
+    r.open("POST", "doctors_chnl.php", true);
+    r.send(f);
+}

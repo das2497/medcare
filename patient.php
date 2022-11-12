@@ -137,7 +137,7 @@ if (isset($_SESSION["PT"])) {
                                 <div class="col-12" id="THdash" style="display: block; ">
                                     <h1>Dashboard</h1>
 
-                                    
+
 
                                 </div>
                                 <!-- ==========dashboard================================================================================== -->
@@ -190,7 +190,26 @@ if (isset($_SESSION["PT"])) {
                                 <div class="col-12" id="THlessons" style="display: none;">
                                     <h1>Doctor Channel</h1>
 
-                                    <div class="overflow-scroll ">
+                                    <?php
+                                    $rsub2 = Database::search("SELECT * FROM specialies;");
+                                    ?>
+
+                                    <div>
+                                        <select class="form-select" id="dchnlspecility" onchange="d_ch_slct();">
+                                            <option value="x">Select Speciality</option>
+                                            <?php
+                                            $rsub2 = Database::search("SELECT * FROM specialies;");
+                                            while ($row2 = mysqli_fetch_assoc($rsub2)) {
+                                            ?>
+                                                <option value="<?php echo $row2["id"]; ?>"><?php echo $row2["speciality"]; ?></option>
+                                            <?php
+                                            }
+                                            ?>
+                                        </select>
+                                    </div>
+
+                                    <div class="overflow-scroll " id="docchnl">
+
                                         <table class=" table table-responsive shadow stdn mt-4">
                                             <thead>
                                                 <tr>
@@ -200,14 +219,14 @@ if (isset($_SESSION["PT"])) {
                                             <tbody>
                                                 <?php
 
-                                                $rs1 = Database::search("SELECT doctor.id, doctor.uname, doctor.name, specialies.speciality, doctor.password FROM doctor INNER JOIN specialies ON doctor.specialty=specialies WHERE ;");
-                                                $sn = $rs1->num_rows;                                            
+                                                $rs1 = Database::search("SELECT doctor.id, doctor.uname, doctor.name, doctor.specialty, specialies.speciality, doctor.password FROM doctor INNER JOIN specialies ON doctor.specialty=specialies.id;");
+                                                $sn = $rs1->num_rows;
 
                                                 for ($i = 0; $i < $sn; $i++) {
-                                                    $sd = $rstbl->fetch_assoc();
+                                                    $sd = $rs1->fetch_assoc();
 
-                                                ?>                                                   
-                                                        <td><?php echo $sd["full_name"]; ?></td>
+                                                ?>
+                                                    <td><?php echo $sd["name"]; ?></td>
                                                     </tr>
 
                                                 <?php
