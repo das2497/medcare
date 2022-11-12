@@ -31,6 +31,24 @@ INSERT INTO `admin` (`id`, `username`, `password`) VALUES
 	(1, 'admin', '1111');
 /*!40000 ALTER TABLE `admin` ENABLE KEYS */;
 
+-- Dumping structure for table med.doctor
+CREATE TABLE IF NOT EXISTS `doctor` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `uname` varchar(50) COLLATE utf8mb4_bin NOT NULL,
+  `name` varchar(50) COLLATE utf8mb4_bin NOT NULL,
+  `specialty` int NOT NULL,
+  `password` varchar(50) COLLATE utf8mb4_bin NOT NULL DEFAULT '',
+  PRIMARY KEY (`id`),
+  KEY `FK_doctor_specialies` (`specialty`),
+  CONSTRAINT `FK_doctor_specialies` FOREIGN KEY (`specialty`) REFERENCES `specialies` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
+
+-- Dumping data for table med.doctor: ~0 rows (approximately)
+/*!40000 ALTER TABLE `doctor` DISABLE KEYS */;
+INSERT INTO `doctor` (`id`, `uname`, `name`, `specialty`, `password`) VALUES
+	(1, 'darshan', 'darshan dharmaraj', 2, '0000');
+/*!40000 ALTER TABLE `doctor` ENABLE KEYS */;
+
 -- Dumping structure for table med.gender
 CREATE TABLE IF NOT EXISTS `gender` (
   `id` int NOT NULL AUTO_INCREMENT,
@@ -85,6 +103,20 @@ INSERT INTO `responsible` (`id`, `person`) VALUES
 	(2, 'patient'),
 	(3, 'guardian');
 /*!40000 ALTER TABLE `responsible` ENABLE KEYS */;
+
+-- Dumping structure for table med.specialies
+CREATE TABLE IF NOT EXISTS `specialies` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `speciality` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
+
+-- Dumping data for table med.specialies: ~0 rows (approximately)
+/*!40000 ALTER TABLE `specialies` DISABLE KEYS */;
+INSERT INTO `specialies` (`id`, `speciality`) VALUES
+	(1, 'skin'),
+	(2, 'ENT');
+/*!40000 ALTER TABLE `specialies` ENABLE KEYS */;
 
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
 /*!40014 SET FOREIGN_KEY_CHECKS=IFNULL(@OLD_FOREIGN_KEY_CHECKS, 1) */;
