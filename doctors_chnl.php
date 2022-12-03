@@ -4,6 +4,13 @@ session_start();
 
 require 'connection.php';
 
+$x;
+
+if ($_POST["specid"] == 'x') {
+    $x = ";";
+} else {
+    $x = " WHERE doctor.specialty='" . $_POST['specid'] . "';";
+}
 ?>
 
 <table class=" table table-responsive shadow stdn mt-4">
@@ -15,7 +22,10 @@ require 'connection.php';
     <tbody>
         <?php
 
-        $rs1 = Database::search("SELECT doctor.id, doctor.uname, doctor.name, doctor.specialty, specialies.speciality, doctor.password FROM doctor INNER JOIN specialies ON doctor.specialty=specialies.id WHERE doctor.specialty='" . $_POST["specid"] . "';");
+        $rs1 = Database::search("SELECT doctor.id, doctor.uname, doctor.name, doctor.specialty, specialies.speciality, doctor.password FROM doctor 
+        INNER JOIN specialies ON doctor.specialty=specialies.id" . $x);
+
+
         $sn = $rs1->num_rows;
 
         for ($i = 0; $i < $sn; $i++) {
