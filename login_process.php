@@ -19,6 +19,10 @@ if (empty($Munm)) {
     INNER JOIN responsible ON patient.responsible=responsible.id
      WHERE uname='" . $Munm . "' AND pass='" . $Mpswd . "';");
 
+    $rs2 = Database::search("SELECT * FROM admin WHERE username='" . $Munm . "' AND PASSWORD='" . $Mpswd . "';");
+
+    $rs3 = Database::search("SELECT * FROM doctor INNER JOIN specialies ON doctor.specialty=specialies.id WHERE doctor.uname='" . $Munm . "' AND doctor.password='" . $Mpswd . "';");
+
     // echo $rs->num_rows;
 
     if ($rs1->num_rows > 0) {
@@ -30,8 +34,28 @@ if (empty($Munm)) {
             setcookie("mpswd", $Mpswd, time() + (60 * 60 * 24 * 365));
         }
 
+        echo "1";
+    }elseif ($rs2->num_rows > 0) {
+
+        $_SESSION["AD"] = $rs2->fetch_assoc();
+
+        if ($Mrm == "true") {
+            setcookie("mun", $Munm, time() + (60 * 60 * 24 * 365));
+            setcookie("mpswd", $Mpswd, time() + (60 * 60 * 24 * 365));
+        }
+
         echo "2";
+    }elseif ($rs3->num_rows > 0) {
+
+        $_SESSION["DT"] = $rs3->fetch_assoc();
+
+        if ($Mrm == "true") {
+            setcookie("mun", $Munm, time() + (60 * 60 * 24 * 365));
+            setcookie("mpswd", $Mpswd, time() + (60 * 60 * 24 * 365));
+        }
+
+        echo "3";
     } else {
         echo "Invalid User Details";
     }
- }
+}

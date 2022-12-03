@@ -4,7 +4,7 @@ session_start();
 
 require 'connection.php';
 
-if (isset($_SESSION["AD"])) {
+if (isset($_SESSION["DT"])) {
 
 
 ?>
@@ -18,7 +18,7 @@ if (isset($_SESSION["AD"])) {
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <title>MEDCARE MEDICAL CENTER | PATIENT ACCOUNT.......</title>
+        <title>DOCTOR <?= $_SESSION["DT"]["name"]; ?></title>
         <link rel="icon" href="assets/Untitled (800 × 800 px).svg">
 
         <link rel="stylesheet" href="style.css">
@@ -42,7 +42,7 @@ if (isset($_SESSION["AD"])) {
                                     <img alt="logo" src="assets/Untitled (800 × 800 px).svg" width="60px">
                                 </div>
                                 <div class="col-12 col-lg-11">
-                                    <h4 class=" mt-2 mt-lg-3 ms-lg-4 text-white">MEDCARE MEDICAL CENTER | PATIENT</h4>
+                                    <h4 class=" mt-2 mt-lg-3 ms-lg-4 text-white">DOCTOR <?= $_SESSION["DT"]["name"]; ?></h4>
                                 </div>
                             </div>
                         </div>
@@ -77,7 +77,7 @@ if (isset($_SESSION["AD"])) {
                                                 <a class="nav-link fw-bold text-white" href="#" tabindex="-1" aria-disabled="true">About Us</a>
                                             </li>
                                             <li class="nav-item">
-                                                <a class="nav-link fw-bold text-white" onclick="admin_logout();" href="#" tabindex="-1" aria-disabled="true">log out</a>
+                                                <a class="nav-link fw-bold text-white" onclick="doctor_logout();" href="#" tabindex="-1" aria-disabled="true">log out</a>
                                             </li>
                                         </ul>
                                     </div>

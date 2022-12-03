@@ -41,13 +41,27 @@ function Mlogin() {
                 MunmSM.style.display = "none";
                 MpswdSM.innerHTML = text;
                 MpswdSM.style.display = "inline";
-            } else if (text == "2") {
+            } else if (text == "1") {
                 MunmSM.style.display = "none";
                 MpswdSM.style.display = "none";
                 MtitleSM.innerHTML = text;
                 MtitleSM.style.color = "green";
                 MtitleSM.style.display = "inline";
                 window.location = "patient.php";
+            } else if (text == "2") {
+                MunmSM.style.display = "none";
+                MpswdSM.style.display = "none";
+                MtitleSM.innerHTML = text;
+                MtitleSM.style.color = "green";
+                MtitleSM.style.display = "inline";
+                window.location = "admin.php";
+            } else if (text == "3") {
+                MunmSM.style.display = "none";
+                MpswdSM.style.display = "none";
+                MtitleSM.innerHTML = text;
+                MtitleSM.style.color = "green";
+                MtitleSM.style.display = "inline";
+                window.location = "doctor.php";
             } else {
                 MunmSM.style.display = "none";
                 MpswdSM.style.display = "none";
@@ -124,4 +138,61 @@ function d_ch_slct() {
 
     r.open("POST", "doctors_chnl.php", true);
     r.send(f);
+}
+
+function admin_logout() {
+
+    var r = new XMLHttpRequest();
+    r.onreadystatechange = function() {
+        if (r.readyState == 4) {
+            var text = r.responseText
+                //  alert(text);
+
+            if (text == 'success') {
+                window.location = 'index.php';
+            }
+
+        }
+    }
+
+    r.open("POST", "admin_logout.php", true);
+    r.send();
+}
+
+function patient_logout() {
+
+    var r = new XMLHttpRequest();
+    r.onreadystatechange = function() {
+        if (r.readyState == 4) {
+            var text = r.responseText
+                //  alert(text);
+
+            if (text == 'success') {
+                window.location = 'index.php';
+            }
+
+        }
+    }
+
+    r.open("POST", "patient_logout.php", true);
+    r.send();
+}
+
+function doctor_logout() {
+
+    var r = new XMLHttpRequest();
+    r.onreadystatechange = function() {
+        if (r.readyState == 4) {
+            var text = r.responseText
+                //  alert(text);
+
+            if (text == 'success') {
+                window.location = 'index.php';
+            }
+
+        }
+    }
+
+    r.open("POST", "doctor_logout.php", true);
+    r.send();
 }

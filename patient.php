@@ -77,7 +77,7 @@ if (isset($_SESSION["PT"])) {
                                                 <a class="nav-link fw-bold text-white" href="#" tabindex="-1" aria-disabled="true">About Us</a>
                                             </li>
                                             <li class="nav-item">
-                                                <a class="nav-link fw-bold text-white" href="#" tabindex="-1" aria-disabled="true">log out</a>
+                                                <a class="nav-link fw-bold text-white" onclick="patient_logout();" href="#" tabindex="-1" aria-disabled="true">log out</a>
                                             </li>
                                         </ul>
                                     </div>
