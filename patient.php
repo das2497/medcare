@@ -18,7 +18,7 @@ if (isset($_SESSION["PT"])) {
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <title>MEDCARE MEDICAL CENTER | PATIENT ACCOUNT.......</title>
+        <title>PATIENT <?= $_SESSION["PT"]["name"]; ?></title>
         <link rel="icon" href="assets/Untitled (800 × 800 px).svg">
 
         <link rel="stylesheet" href="style.css">
@@ -42,7 +42,7 @@ if (isset($_SESSION["PT"])) {
                                     <img alt="logo" src="assets/Untitled (800 × 800 px).svg" width="60px">
                                 </div>
                                 <div class="col-12 col-lg-11">
-                                    <h4 class=" mt-2 mt-lg-3 ms-lg-4 text-white">MEDCARE MEDICAL CENTER | PATIENT</h4>
+                                    <h4 class=" mt-2 mt-lg-3 ms-lg-4 text-white">PATIENT <?= $_SESSION["PT"]["name"]; ?></h4>
                                 </div>
                             </div>
                         </div>

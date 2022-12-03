@@ -14,7 +14,7 @@ if (empty($Munm)) {
     echo "Please Enter Your Password";
 } else {
 
-    $rs1 = Database::search("SELECT patient.id, patient.uname, patient.name, gender.gender_type, patient.nic, patient.dob, patient.address, patient.contact, patient.notes, responsible.person, patient.pass FROM patient
+    $rs1 = Database::search("SELECT * FROM patient
     INNER JOIN gender ON patient.gender=gender.id
     INNER JOIN responsible ON patient.responsible=responsible.id
      WHERE uname='" . $Munm . "' AND pass='" . $Mpswd . "';");
