@@ -58,16 +58,7 @@ if (isset($_SESSION["DT"])) {
                                     <div class="collapse navbar-collapse " id="navbarSupportedContent">
                                         <ul class="navbar-nav mb-2 mb-lg-0 text-end  ">
                                             <li class="nav-item" onclick="THdash();">
-                                                <a class="nav-link fw-bold d-block d-lg-none text-white" aria-current="page" href="#">Dashboard</a>
-                                            </li>
-                                            <li class="nav-item" onclick="THprofile();">
-                                                <a class="nav-link fw-bold d-block d-lg-none text-white" aria-current="page" href="#">Profile</a>
-                                            </li>
-                                            <li class="nav-item" onclick="THChannel();">
-                                                <a class="nav-link fw-bold d-block d-lg-none text-white" aria-current="page" href="#">Doctor Channel</a>
-                                            </li>
-                                            <li class="nav-item" onclick="THReports();">
-                                                <a class="nav-link fw-bold d-block d-lg-none text-white" aria-current="page" href="#">Lab Reports</a>
+                                                <a class="nav-link fw-bold d-block d-lg-none text-white" aria-current="page" href="#">Appoinments</a>
                                             </li>
                                             <hr class="my-1 text-white border border-bottom ">
                                             <li>
@@ -102,21 +93,9 @@ if (isset($_SESSION["DT"])) {
                                     <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white ">
                                         <h4 class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white">Menu</h4>
                                         <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
-                                            <li onclick="THdash();">
+                                            <li>
                                                 <a href="#submenu1" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
-                                                    <i class="fs-4 bi-speedometer2"></i> <span class="ms-1 d-none d-sm-inline text-white">Dashboard</span> </a>
-                                            </li>
-                                            <li onclick="THprofile();">
-                                                <a href="#" class="nav-link px-0 align-middle">
-                                                    <i class="fs-4 bi-table"></i> <span class="ms-1 d-none d-sm-inline text-white">Profile</span></a>
-                                            </li>
-                                            <li onclick="THChannel();">
-                                                <a href="#submenu2" data-bs-toggle="collapse" class="nav-link px-0 align-middle ">
-                                                    <i class="fs-4 bi-bootstrap"></i> <span class="ms-1 d-none d-sm-inline text-white">Doctor Channel</span></a>
-                                            </li>
-                                            <li onclick="THReports();">
-                                                <a href="#submenu2" data-bs-toggle="collapse" class="nav-link px-0 align-middle ">
-                                                    <i class="fs-4 bi-bootstrap"></i> <span class="ms-1 d-none d-sm-inline text-white">Lab Reports</span></a>
+                                                    <i class="fs-4 bi-speedometer2"></i> <span class="ms-1 d-none d-sm-inline text-white">Appoinments</span> </a>
                                             </li>
                                         </ul>
                                     </div>

@@ -194,7 +194,8 @@ if (isset($_SESSION["PT"])) {
                                     $rsub2 = Database::search("SELECT * FROM specialies;");
                                     ?>
 
-                                    <div>
+                                    <div class="row" id="docdtails">
+                                    <div class="col-6 offset-6">
                                         <select class="form-select" id="dchnlspecility" onchange="d_ch_slct();">
                                             <option value="x">Select Speciality</option>
                                             <?php
@@ -208,12 +209,13 @@ if (isset($_SESSION["PT"])) {
                                         </select>
                                     </div>
 
-                                    <div class="overflow-scroll " id="docchnl">
+                                    <div class="col-12 overflow-scroll " id="docchnl">
 
                                         <table class=" table table-responsive table-striped shadow table-hover mt-4">
                                             <thead>
                                                 <tr>
-                                                    <th scope="col">Student Username</th>
+                                                    <th scope="col">Doctor's Name</th>
+                                                    <th>Details</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -228,6 +230,7 @@ if (isset($_SESSION["PT"])) {
                                                 ?>
                                                     <tr class="alert-info">
                                                         <td><?php echo $sd["name"]; ?></td>
+                                                        <td><button onclick="doctorDetails('<?php echo $sd['id']; ?>');" class="btn btn-primary">View Details</button></td>
                                                     </tr>
 
                                                 <?php
@@ -239,9 +242,9 @@ if (isset($_SESSION["PT"])) {
                                             </tbody>
                                         </table>
                                     </div>
+                                    </div>
 
-
-                                </div>
+                                                                   </div>
                                 <!-- ==========lessons================================================================================== -->
 
                                 <!-- ==========assignments============================================================================================= -->

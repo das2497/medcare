@@ -196,3 +196,22 @@ function doctor_logout() {
     r.open("POST", "doctor_logout.php", true);
     r.send();
 }
+
+function doctorDetails(did) {
+    var r = new XMLHttpRequest();
+    r.onreadystatechange = function() {
+        if (r.readyState == 4) {
+            var text = r.responseText
+                // alert(text);
+
+            document.getElementById("docdtails").innerHTML = text;
+
+        }
+    }
+
+    var f = new FormData();
+    f.append("did", did);
+
+    r.open("POST", "d_chnl_details.php", true);
+    r.send(f);
+}
