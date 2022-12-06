@@ -16,7 +16,8 @@ if ($_POST["specid"] == 'x') {
 <table class=" table table-responsive shadow stdn mt-4">
     <thead>
         <tr>
-            <th scope="col">Student Username</th>
+            <th scope="col">Doctor's Name</th>
+            <th>Details</th>
         </tr>
     </thead>
     <tbody>
@@ -34,6 +35,7 @@ if ($_POST["specid"] == 'x') {
         ?>
             <tr class="alert-info">
                 <td><?php echo $sd["name"]; ?></td>
+                <td><button onclick="doctorDetails('<?php echo $sd['id']; ?>','<?php echo $sd['name']; ?>');" class="btn btn-primary">View Details</button></td>
             </tr>
 
         <?php

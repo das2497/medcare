@@ -9,6 +9,7 @@
     <title>MEDCARE MEDICAL CENTER | LOGIN PAGE</title>
     <link rel="icon" href="assets/Untitled (800 × 800 px).svg">
 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="bootstrap.css">
 </head>
@@ -56,12 +57,15 @@
                                     <div class="col-12 g-2">
                                         <label class="form-label"><span class="text-danger">*</span>User Name</label>
                                         <small id="MunmSM" style="display: none;" class="text-danger fw-bold"></small>
-                                        <input type="text" class="form-control" id="Munm" value="">
+                                        <input type="text" class="form-control" id="Munm" value="" placeholder="Please Enter Your Username">
                                     </div>
                                     <div class="col-12 g-2">
                                         <label class="form-label"><span class="text-danger">*</span>Password</label>
                                         <small id="MpswdSM" style="display: none;" class="text-danger fw-bold"></small>
-                                        <input type="password" class="form-control" id="Mpswd" value="">
+                                        <div class="input-group mb-3">
+                                            <input type="password" class="form-control" id="Mpswd" placeholder="Please Enter Your Password">
+                                            <span onclick="chng_pswrd_type();" class="input-group-text" style="cursor: pointer;" id="pswrdicon"><i class="bi bi-eye"></i></span>
+                                        </div>
                                     </div>
                                     <div class="col-12 my-4 ps-4">
                                         <div class="row">

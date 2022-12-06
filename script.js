@@ -9,6 +9,23 @@ function fogotpassword() {
 
 }
 
+function chng_pswrd_type() {
+
+    var pswrdfield = document.getElementById("Mpswd");
+    var pswrdicon = document.getElementById("pswrdicon");
+
+    // alert(pswrdfield.type);
+
+    if (pswrdfield.type == "password") {
+        pswrdfield.type = "text";
+        pswrdicon.innerHTML = "<i class='bi bi-eye-slash'></i>";
+    } else if (pswrdfield.type = "text") {
+        pswrdfield.type = "password";
+        pswrdicon.innerHTML = "<i class='bi bi-eye'></i>";
+    }
+
+}
+
 function Mlogin() {
     var Munm = document.getElementById("Munm");
     var Mpswd = document.getElementById("Mpswd");
@@ -46,21 +63,21 @@ function Mlogin() {
                 MpswdSM.style.display = "none";
                 MtitleSM.innerHTML = text;
                 MtitleSM.style.color = "green";
-                MtitleSM.style.display = "inline";
+                // MtitleSM.style.display = "inline";
                 window.location = "patient.php";
             } else if (text == "2") {
                 MunmSM.style.display = "none";
                 MpswdSM.style.display = "none";
                 MtitleSM.innerHTML = text;
                 MtitleSM.style.color = "green";
-                MtitleSM.style.display = "inline";
+                // MtitleSM.style.display = "inline";
                 window.location = "admin.php";
             } else if (text == "3") {
                 MunmSM.style.display = "none";
                 MpswdSM.style.display = "none";
                 MtitleSM.innerHTML = text;
                 MtitleSM.style.color = "green";
-                MtitleSM.style.display = "inline";
+                // MtitleSM.style.display = "inline";
                 window.location = "doctor.php";
             } else {
                 MunmSM.style.display = "none";

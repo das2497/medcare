@@ -137,7 +137,40 @@ if (isset($_SESSION["PT"])) {
                                 <div class="col-12" id="THdash" style="display: block; ">
                                     <h1>Dashboard</h1>
 
+                                    <div class="row">
+                                        <div class="col-8">
+                                            <table class="table table-responsive table-striped">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Doctor's Name</th>
+                                                        <th>Date</th>
+                                                        <th>Time</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <?php
+                                                    $pchnlsrs = Database::search("SELECT * FROM patient_channels
+                                                    INNER JOIN patient ON patient_channels.patient_id=patient.id
+                                                    INNER JOIN d_chanel_time ON patient_channels.chnl_id=d_chanel_time.chnl_id
+                                                    INNER JOIN doctor ON d_chanel_time.doc_id=doctor.id
+                                                        WHERE patient.preg_no='" . $_SESSION['PT']['preg_no'] . "';");
 
+                                                    $pchnlsn = $pchnlsrs->num_rows;
+
+                                                    for ($i = 0; $i < $pchnlsn; $i++) {
+
+                                                        $pchnlsd = $pchnlsrs->fetch_assoc();
+                                                    ?>
+                                                        <tr>
+                                                            <td><?php echo $pchnlsd["uname"]; ?></td>
+                                                        </tr>
+                                                    <?php
+                                                    }
+                                                    ?>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
 
                                 </div>
                                 <!-- ==========dashboard================================================================================== -->
@@ -146,7 +179,7 @@ if (isset($_SESSION["PT"])) {
                                 <div class="col-12" id="THprofile" style="display: none;">
                                     <h1>Profile</h1>
 
-                                    <div class="row pt-4">
+                                    <div class="row pt-4 shadow">
                                         <div class="col-12 col-lg-6"><label class="labels">Username</label>
                                             <input type="text" class="form-control" placeholder="Username" value="<?php echo $_SESSION["PT"]["uname"]; ?>" id="THuname">
                                         </div>

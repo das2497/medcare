@@ -19,9 +19,12 @@ if (empty($Munm)) {
     INNER JOIN responsible ON patient.responsible=responsible.id
      WHERE uname='" . $Munm . "' AND pass='" . $Mpswd . "';");
 
-    $rs2 = Database::search("SELECT * FROM admin WHERE username='" . $Munm . "' AND PASSWORD='" . $Mpswd . "';");
+    $rs2 = Database::search("SELECT * FROM admin 
+    WHERE username='" . $Munm . "' AND PASSWORD='" . $Mpswd . "';");
 
-    $rs3 = Database::search("SELECT * FROM doctor INNER JOIN specialies ON doctor.specialty=specialies.id WHERE doctor.uname='" . $Munm . "' AND doctor.password='" . $Mpswd . "';");
+    $rs3 = Database::search("SELECT * FROM doctor 
+    INNER JOIN specialies ON doctor.specialty=specialies.id 
+    WHERE doctor.uname='" . $Munm . "' AND doctor.password='" . $Mpswd . "';");
 
     // echo $rs->num_rows;
 
