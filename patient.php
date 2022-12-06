@@ -229,7 +229,7 @@ if (isset($_SESSION["PT"])) {
                                                     ?>
                                                         <tr class="alert-info">
                                                             <td><?php echo $sd["name"]; ?></td>
-                                                            <td><button onclick="doctorDetails('<?php echo $sd['id']; ?>');" class="btn btn-primary">View Details</button></td>
+                                                            <td><button onclick="doctorDetails('<?php echo $sd['id']; ?>','<?php echo $sd['name']; ?>');" class="btn btn-primary">View Details</button></td>
                                                         </tr>
 
                                                     <?php

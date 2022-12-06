@@ -197,7 +197,7 @@ function doctor_logout() {
     r.send();
 }
 
-function doctorDetails(did) {
+function doctorDetails(did, dname) {
     var r = new XMLHttpRequest();
     r.onreadystatechange = function() {
         if (r.readyState == 4) {
@@ -211,6 +211,7 @@ function doctorDetails(did) {
 
     var f = new FormData();
     f.append("did", did);
+    f.append("dname", dname);
 
     r.open("POST", "d_chnl_details.php", true);
     r.send(f);
@@ -230,4 +231,8 @@ function d_chnl_back() {
 
     r.open("POST", "patient_d_chnl.php", true);
     r.send();
+}
+
+function make_appointment(chnlid) {
+    alert(chnlid);
 }

@@ -61,7 +61,7 @@
                                     <div class="col-12 g-2">
                                         <label class="form-label"><span class="text-danger">*</span>Password</label>
                                         <small id="MpswdSM" style="display: none;" class="text-danger fw-bold"></small>
-                                        <input type="text" class="form-control" id="Mpswd" value="">
+                                        <input type="password" class="form-control" id="Mpswd" value="">
                                     </div>
                                     <div class="col-12 my-4 ps-4">
                                         <div class="row">
@@ -122,100 +122,6 @@
             </div>
 
             <!--===========forgot password===============================================================================================-->
-
-            <!--=============verify student=============================================================================================================-->
-
-            <div class="modal" tabindex="-1" id="studentVerificationdModel">
-                <div class="modal-dialog">
-                    <div class="modal-content bg-white " style="margin-top: 80px;">
-                        <div class="modal-header">
-                            <h5 class="modal-title text-dark">STUDENT VERIFICATION</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                            <div class="row g-3">
-                                <div class="col-12">
-                                    <label class="form-label text-dark">Pleace Enter Your Student Verification Code</label>
-                                    <small id="STalrtSM" style="display: none;" class="text-danger fw-bold ms-2"></small>
-                                    <div class="input-group mb-3">
-                                        <input type="text" class="form-control" id="STVcode">
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-warning " data-bs-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary" onclick="updateVerifyStudent();">Verify</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!--===========verify student===============================================================================================-->
-
-            <!--=============verify teacher=============================================================================================================-->
-
-            <div class="modal" tabindex="-1" id="teacherVerificationdModel">
-                <div class="modal-dialog">
-                    <div class="modal-content bg-white " style="margin-top: 80px;">
-                        <div class="modal-header">
-                            <h5 class="modal-title text-dark">TEACHER VERIFICATION</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                            <div class="row g-3">
-                                <div class="col-12">
-                                    <label class="form-label text-dark">Pleace Enter Your Teacher Verification Code</label>
-                                    <small id="THalrtSM" style="display: none;" class="text-danger fw-bold ms-2"></small>
-                                    <div class="input-group mb-3">
-                                        <input type="text" class="form-control" id="THVcode">
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-warning " data-bs-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary" onclick="updateVerifyTeacher();">Verify</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!--===========verify teacher===============================================================================================-->
-
-            <!--=============verify officer=============================================================================================================-->
-
-            <div class="modal" tabindex="-1" id="officerVerificationdModel">
-                <div class="modal-dialog">
-                    <div class="modal-content bg-white " style="margin-top: 80px;">
-                        <div class="modal-header">
-                            <h5 class="modal-title text-dark">OFFICER VERIFICATION</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                            <div class="row g-3">
-                                <div class="col-12">
-                                    <label class="form-label text-dark">Pleace Enter Your Officer Verification Code</label>
-                                    <small id="OFalrtSM" style="display: none;" class="text-danger fw-bold ms-2"></small>
-                                    <div class="input-group mb-3">
-                                        <input type="text" class="form-control" id="OFVcode">
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-warning " data-bs-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary" onclick="updateVerifyOfficer();">Verify</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!--===========verify officer===============================================================================================-->
-
         </div>
 
     </div>
