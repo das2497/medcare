@@ -4,7 +4,7 @@ require 'connection.php';
 
 $rs = Database::search("SELECT * FROM d_chanel_time
 INNER JOIN doctor ON d_chanel_time.doc_id=doctor.id
-WHERE doctor.id='" . $_POST["did"] . "';");
+WHERE doctor.id='" . $_POST["did"] . "' AND stat='1';");
 
 
 
@@ -23,6 +23,9 @@ WHERE doctor.id='" . $_POST["did"] . "';");
         <tbody>
 
             <?php
+            date_default_timezone_set("Asia/Colombo");
+            $currentTime = date("h:i a");
+            $currentDate = date("n.j.Y");
             for ($i = 0; $i < $rs->num_rows; $i++) {
 
                 $d = $rs->fetch_assoc();
@@ -31,6 +34,10 @@ WHERE doctor.id='" . $_POST["did"] . "';");
                 $date = $time->format('n.j.Y');
                 $day = date('l', strtotime($d["date_time"]));
                 $time = $time->format('h:i a');
+
+                if ($currentDate > $date) {
+                    Database::iud("UPDATE d_chanel_time SET stat='0' WHERE chnl_id='" . $d['chnl_id'] . "'");
+                }
 
             ?>
 

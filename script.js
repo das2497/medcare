@@ -251,7 +251,7 @@ function d_chnl_back() {
 }
 
 function make_appointment(chnlid, pid) {
-    alert(chnlid + " " + pid);
+    // alert(chnlid + " " + pid);
 
     var r = new XMLHttpRequest();
     r.onreadystatechange = function() {
@@ -268,4 +268,17 @@ function make_appointment(chnlid, pid) {
 
     r.open("POST", "make_appointment_patient.php", true);
     r.send(f);
+}
+
+function checkedPatient(pregno) {
+
+    var pchecked = document.getElementById("pchecked");
+
+    if (pchecked.checked != "true") {
+        document.getElementById("chklbl").innerHTML = "checked";
+        pchecked.disabled = "true";
+    }
+
+
+
 }

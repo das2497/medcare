@@ -172,7 +172,7 @@ if (isset($_SESSION["PT"])) {
                                                         $day = date('l', strtotime($pchnlsd["date_time"]));
                                                         $time = $time->format('h:i a');
 
-                                                        if ($currentTime > $time || $currentDate > $date) {
+                                                        if ($currentDate > $date) {
                                                             //  echo "yes";
                                                             Database::iud("UPDATE patient_channels SET `status`='0' WHERE p_chnl_id='" . $pchnlsd['p_chnl_id'] . "';");
                                                         } else {
