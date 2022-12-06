@@ -215,3 +215,7 @@ function doctorDetails(did) {
     r.open("POST", "d_chnl_details.php", true);
     r.send(f);
 }
+
+function d_chnl_back() {
+
+}
