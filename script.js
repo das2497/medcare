@@ -217,5 +217,17 @@ function doctorDetails(did) {
 }
 
 function d_chnl_back() {
+    var r = new XMLHttpRequest();
+    r.onreadystatechange = function() {
+        if (r.readyState == 4) {
+            var text = r.responseText
+                // alert(text);
 
+            document.getElementById("docdtails").innerHTML = text;
+
+        }
+    }
+
+    r.open("POST", "patient_d_chnl.php", true);
+    r.send();
 }
