@@ -279,6 +279,6 @@ function checkedPatient(pregno) {
         pchecked.disabled = "true";
     }
 
-
+    var r = new XMLHttpRequest();
 
 }
