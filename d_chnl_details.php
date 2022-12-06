@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 require 'connection.php';
 
 $rs = Database::search("SELECT * FROM d_chanel_time
@@ -9,8 +9,6 @@ WHERE doctor.id='" . $_POST["did"] . "';");
 
 
 ?>
-
-<link rel="stylesheet" href="bootstrap.css">
 
 <div class="col-12">
     <label for="" class="form-label shadow p-4 rounded fw-bold"><?php echo $_POST["dname"] ?></label>
@@ -39,7 +37,7 @@ WHERE doctor.id='" . $_POST["did"] . "';");
                 <tr class="table-primary">
                     <td><?php echo $day . " " . $date; ?></td>
                     <td><?php echo $time; ?></td>
-                    <td><button onclick="make_appointment('<?php echo $d['chnl_id']; ?>');" class="btn btn-primary">Make Appoinment</button></td>
+                    <td><button onclick="make_appointment('<?php echo $d['chnl_id']; ?>','<?php echo $_SESSION['PT']['id']; ?>');" class="btn btn-primary">Make Appoinment</button></td>
                 </tr>
 
             <?php

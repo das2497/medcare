@@ -250,6 +250,22 @@ function d_chnl_back() {
     r.send();
 }
 
-function make_appointment(chnlid) {
-    alert(chnlid);
+function make_appointment(chnlid, pid) {
+    alert(chnlid + " " + pid);
+
+    var r = new XMLHttpRequest();
+    r.onreadystatechange = function() {
+        if (r.readyState == 4) {
+            var text = r.responseText
+            alert(text);
+
+        }
+    }
+
+    var f = new FormData();
+    f.append("chnlid", chnlid);
+    f.append("pid", pid);
+
+    r.open("POST", "make_appointment_patient.php", true);
+    r.send(f);
 }
