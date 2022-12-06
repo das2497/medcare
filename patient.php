@@ -138,7 +138,8 @@ if (isset($_SESSION["PT"])) {
                                     <h1>Dashboard</h1>
 
                                     <div class="row">
-                                        <div class="col-8">
+                                        <div class="col-8 shadow">
+                                            <h4 class="text-center">My Channelings</h4>
                                             <table class="table table-responsive table-striped">
                                                 <thead>
                                                     <tr>
@@ -153,9 +154,14 @@ if (isset($_SESSION["PT"])) {
                                                     INNER JOIN patient ON patient_channels.patient_id=patient.id
                                                     INNER JOIN d_chanel_time ON patient_channels.chnl_id=d_chanel_time.chnl_id
                                                     INNER JOIN doctor ON d_chanel_time.doc_id=doctor.id
-                                                        WHERE patient.preg_no='" . $_SESSION['PT']['preg_no'] . "';");
+                                                        WHERE patient.preg_no='" . $_SESSION['PT']['preg_no'] . "'
+                                                        AND patient_channels.`status`='1';");
 
                                                     $pchnlsn = $pchnlsrs->num_rows;
+
+                                                    date_default_timezone_set("Asia/Colombo");
+                                                    $currentTime = date("h:i a");
+                                                    $currentDate = date("n.j.Y");
 
                                                     for ($i = 0; $i < $pchnlsn; $i++) {
 
@@ -166,13 +172,23 @@ if (isset($_SESSION["PT"])) {
                                                         $day = date('l', strtotime($pchnlsd["date_time"]));
                                                         $time = $time->format('h:i a');
 
+                                                        if ($currentTime > $time || $currentDate > $date) {
+                                                            //  echo "yes";
+                                                            Database::iud("UPDATE patient_channels SET `status`='0' WHERE p_chnl_id='" . $pchnlsd['p_chnl_id'] . "';");
+                                                        } else {
+                                                            //  echo "no";
+                                                        }
+
+                                                        if ($pchnlsd["status"] == 1) {
+
                                                     ?>
-                                                        <tr>
-                                                            <td><?php echo $pchnlsd["name"]; ?></td>
-                                                            <td><?php echo $date; ?></td>
-                                                            <td><?php echo $time;?></td>
-                                                        </tr>
+                                                            <tr class="table-info">
+                                                                <td><?php echo $pchnlsd["name"]; ?></td>
+                                                                <td><?php echo $date; ?></td>
+                                                                <td><?php echo $time; ?></td>
+                                                            </tr>
                                                     <?php
+                                                        }
                                                     }
                                                     ?>
                                                 </tbody>
