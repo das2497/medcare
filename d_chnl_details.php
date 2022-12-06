@@ -8,6 +8,10 @@ WHERE doctor.id='" . $_POST["did"] . "';");
 
 $d = $rs->fetch_assoc();
 
+$time = new DateTime($d["date_time"]);
+$date = $time->format('n.j.Y');
+$time = $time->format('H:i');
+
 ?>
 
 <link rel="stylesheet" href="bootstrap.css">
@@ -24,8 +28,8 @@ $d = $rs->fetch_assoc();
         </thead>
         <tbody>
             <tr class="table-primary">
-                <td><?php echo $d["name"] ?></td>
-                <td><?php echo $d["name"] ?></td>
+                <td><?php echo $date; ?></td>
+                <td><?php echo $time; ?></td>
                 <td><button class="btn btn-primary">Make Appoinment</button></td>
             </tr>
         </tbody>
