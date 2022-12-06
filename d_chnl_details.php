@@ -33,5 +33,5 @@ $d = $rs->fetch_assoc();
 </div>
 
 <div class="col-10 offset-1 col-lg-4 offset-lg-8 d-grid">
-    <button class="btn btn-danger">Go Back</button>
+    <button onclick="d_chnl_back();" class="btn btn-danger">Go Back</button>
 </div>
