@@ -10,6 +10,7 @@ $d = $rs->fetch_assoc();
 
 $time = new DateTime($d["date_time"]);
 $date = $time->format('n.j.Y');
+$day = date('l', strtotime($d["date_time"]));
 $time = $time->format('H:i');
 
 ?>
@@ -28,7 +29,7 @@ $time = $time->format('H:i');
         </thead>
         <tbody>
             <tr class="table-primary">
-                <td><?php echo $date; ?></td>
+                <td><?php echo $day . " " . $date; ?></td>
                 <td><?php echo $time; ?></td>
                 <td><button class="btn btn-primary">Make Appoinment</button></td>
             </tr>
