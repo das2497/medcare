@@ -32,7 +32,7 @@ WHERE doctor.id='" . $_POST["did"] . "';");
                 $time = new DateTime($d["date_time"]);
                 $date = $time->format('n.j.Y');
                 $day = date('l', strtotime($d["date_time"]));
-                $time = $time->format('H:i');
+                $time = $time->format('h:i a');
 
             ?>
 

@@ -160,9 +160,17 @@ if (isset($_SESSION["PT"])) {
                                                     for ($i = 0; $i < $pchnlsn; $i++) {
 
                                                         $pchnlsd = $pchnlsrs->fetch_assoc();
+
+                                                        $time = new DateTime($pchnlsd["date_time"]);
+                                                        $date = $time->format('n.j.Y');
+                                                        $day = date('l', strtotime($pchnlsd["date_time"]));
+                                                        $time = $time->format('h:i a');
+
                                                     ?>
                                                         <tr>
-                                                            <td><?php echo $pchnlsd["uname"]; ?></td>
+                                                            <td><?php echo $pchnlsd["name"]; ?></td>
+                                                            <td><?php echo $date; ?></td>
+                                                            <td><?php echo $time;?></td>
                                                         </tr>
                                                     <?php
                                                     }
