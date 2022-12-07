@@ -204,6 +204,9 @@ if (isset($_SESSION["PT"])) {
                                     <h1>Profile</h1>
 
                                     <div class="row pt-4 shadow">
+                                        <div class="col-12 col-lg-6 offset-lg-6"><label class="labels">Registration Number</label>
+                                            <input type="text" class="form-control" placeholder="Username" value="<?php echo $_SESSION["PT"]["preg_no"]; ?>" id="THpreg_no">
+                                        </div>
                                         <div class="col-12 col-lg-6"><label class="labels">Username</label>
                                             <input type="text" class="form-control" placeholder="Username" value="<?php echo $_SESSION["PT"]["uname"]; ?>" id="THuname">
                                         </div>

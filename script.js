@@ -308,3 +308,38 @@ function checkedPatient(pregno) {
     var r = new XMLHttpRequest();
 
 }
+
+function recp_patient_dtails(preg) {
+
+    var r = new XMLHttpRequest();
+    r.onreadystatechange = function() {
+        if (r.readyState == 4) {
+            var text = r.responseText
+                //  alert(text);
+            document.getElementById("pdtails").innerHTML = text;
+        }
+    }
+
+    var f = new FormData();
+    f.append("preg", preg);
+
+    r.open("POST", "rcp_patient_details.php", true);
+    r.send(f);
+
+}
+
+function pdtails_back() {
+
+    var r = new XMLHttpRequest();
+    r.onreadystatechange = function() {
+        if (r.readyState == 4) {
+            var text = r.responseText
+                //  alert(text);
+            document.getElementById("pdtails").innerHTML = text;
+        }
+    }
+
+    r.open("POST", "pdtails_recp.php", true);
+    r.send();
+
+}

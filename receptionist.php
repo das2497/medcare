@@ -133,7 +133,7 @@ if (isset($_SESSION["RP"])) {
                                 <div class="col-12" id="THprofile" style="display: none;">
                                     <h4>Patients </h4>
                                     <div class="row">
-                                        <div class="col-10 offset-1 shadow">
+                                        <div class="col-10 offset-1 shadow m-2" id="pdtails">
                                             <?php
                                             $prs = Database::search("SELECT * FROM patient
                                                 INNER JOIN gender ON patient.gender=gender.id
@@ -141,7 +141,7 @@ if (isset($_SESSION["RP"])) {
 
                                             $pn = $prs->num_rows;
                                             ?>
-                                            <table align="center" class="table table-responsive table-striped ">
+                                            <table class="table table-responsive table-striped ">
                                                 <thead>
                                                     <th>Registration No</th>
                                                     <th>patient Name</th>
@@ -155,7 +155,7 @@ if (isset($_SESSION["RP"])) {
                                                         <tr class="table-info">
                                                             <td><?= $pd["preg_no"] ?></td>
                                                             <td><?= $pd["name"] ?></td>
-                                                            <td><button class="btn btn-primary">View Details</button></td>
+                                                            <td><button onclick="recp_patient_dtails('<?= $pd['preg_no'] ?>');" class="btn btn-primary">View Details</button></td>
                                                         </tr>
                                                     <?php
                                                     }
