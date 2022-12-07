@@ -79,6 +79,13 @@ function Mlogin() {
                 MtitleSM.style.color = "green";
                 // MtitleSM.style.display = "inline";
                 window.location = "doctor.php";
+            } else if (text == "4") {
+                MunmSM.style.display = "none";
+                MpswdSM.style.display = "none";
+                MtitleSM.innerHTML = text;
+                MtitleSM.style.color = "green";
+                // MtitleSM.style.display = "inline";
+                window.location = "receptionist.php";
             } else {
                 MunmSM.style.display = "none";
                 MpswdSM.style.display = "none";
@@ -211,6 +218,25 @@ function doctor_logout() {
     }
 
     r.open("POST", "doctor_logout.php", true);
+    r.send();
+}
+
+function recep_logout() {
+
+    var r = new XMLHttpRequest();
+    r.onreadystatechange = function() {
+        if (r.readyState == 4) {
+            var text = r.responseText
+                //  alert(text);
+
+            if (text == 'success') {
+                window.location = 'index.php';
+            }
+
+        }
+    }
+
+    r.open("POST", "receptionist_logoot.php", true);
     r.send();
 }
 

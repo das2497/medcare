@@ -26,6 +26,10 @@ if (empty($Munm)) {
     INNER JOIN specialies ON doctor.specialty=specialies.id 
     WHERE doctor.uname='" . $Munm . "' AND doctor.password='" . $Mpswd . "';");
 
+    $rs4 = Database::search("SELECT * FROM receptionist
+    INNER JOIN gender ON receptionist.gender=gender.id
+    WHERE receptionist.uname='" . $Munm . "' AND receptionist.pass='" . $Mpswd . "';");
+
     // echo $rs->num_rows;
 
     if ($rs1->num_rows > 0) {
@@ -38,7 +42,7 @@ if (empty($Munm)) {
         }
 
         echo "1";
-    }elseif ($rs2->num_rows > 0) {
+    } elseif ($rs2->num_rows > 0) {
 
         $_SESSION["AD"] = $rs2->fetch_assoc();
 
@@ -48,7 +52,7 @@ if (empty($Munm)) {
         }
 
         echo "2";
-    }elseif ($rs3->num_rows > 0) {
+    } elseif ($rs3->num_rows > 0) {
 
         $_SESSION["DT"] = $rs3->fetch_assoc();
 
@@ -58,6 +62,16 @@ if (empty($Munm)) {
         }
 
         echo "3";
+    } elseif ($rs4->num_rows > 0) {
+
+        $_SESSION["RP"] = $rs4->fetch_assoc();
+
+        if ($Mrm == "true") {
+            setcookie("mun", $Munm, time() + (60 * 60 * 24 * 365));
+            setcookie("mpswd", $Mpswd, time() + (60 * 60 * 24 * 365));
+        }
+
+        echo "4";
     } else {
         echo "Invalid User Details";
     }
