@@ -362,8 +362,8 @@ function pdtails_update(pregno) {
     r.onreadystatechange = function() {
         if (r.readyState == 4) {
             var text = r.responseText
-                //  alert(text);
-            document.getElementById("pdtails").innerHTML = text;
+            alert(text);
+            //   document.getElementById("pdtails").innerHTML = text;
         }
     }
 
