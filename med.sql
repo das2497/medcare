@@ -191,6 +191,37 @@ INSERT INTO `patient_channels` VALUES (1,1,1,1,1);
 UNLOCK TABLES;
 
 --
+-- Table structure for table `receptionist`
+--
+
+DROP TABLE IF EXISTS `receptionist`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `receptionist` (
+  `res_id` int NOT NULL AUTO_INCREMENT,
+  `uname` varchar(50) COLLATE utf8mb4_bin NOT NULL DEFAULT '0',
+  `name` varchar(50) COLLATE utf8mb4_bin NOT NULL,
+  `nic` varchar(50) COLLATE utf8mb4_bin NOT NULL,
+  `contact` varchar(50) COLLATE utf8mb4_bin NOT NULL,
+  `pass` varchar(50) COLLATE utf8mb4_bin NOT NULL,
+  `gender` int NOT NULL,
+  PRIMARY KEY (`res_id`),
+  KEY `FK_receptionist_gender` (`gender`),
+  CONSTRAINT `FK_receptionist_gender` FOREIGN KEY (`gender`) REFERENCES `gender` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `receptionist`
+--
+
+LOCK TABLES `receptionist` WRITE;
+/*!40000 ALTER TABLE `receptionist` DISABLE KEYS */;
+INSERT INTO `receptionist` VALUES (1,'dasun','Dasun Madushan','9997755552','0777466543','0000',1);
+/*!40000 ALTER TABLE `receptionist` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `responsible`
 --
 
@@ -247,4 +278,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-12-07  7:45:32
+-- Dump completed on 2022-12-07 11:02:15

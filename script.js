@@ -343,3 +343,21 @@ function pdtails_back() {
     r.send();
 
 }
+
+function pdtails_update(pregno) {
+
+    var preg_no = document.getElementById("")
+
+    var r = new XMLHttpRequest();
+    r.onreadystatechange = function() {
+        if (r.readyState == 4) {
+            var text = r.responseText
+                //  alert(text);
+            document.getElementById("pdtails").innerHTML = text;
+        }
+    }
+
+    r.open("POST", "pdtails_update_recp.php", true);
+    r.send();
+
+}
