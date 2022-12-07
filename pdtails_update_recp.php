@@ -40,4 +40,6 @@ if (empty($_POST["rpuname"])) {
     Database::iud("UPDATE patient SET uname='" . $_POST["rpuname"] . "', `name`='" . $_POST["rpname"] . "', gender='" . $_POST["rpgender_type"] . "', 
     nic='" . $_POST["rpnic"] . "', dob='" . $_POST["rpdob"] . "', `address`='" . $_POST["rpaddress"] . "', contact='" . $_POST["rpcontact"] . "', 
     notes='" . $_POST["rpnotes"] . "', responsible='" . $_POST["rpperson"] . "', pass='" . $_POST["rppass"] . "' WHERE preg_no='" . $_POST["rppreg_no"] . "';");
+
+    echo "Successfully Updated";
 }
