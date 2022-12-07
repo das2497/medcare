@@ -346,7 +346,17 @@ function pdtails_back() {
 
 function pdtails_update(pregno) {
 
-    var preg_no = document.getElementById("")
+    var rppreg_no = document.getElementById("rppreg_no");
+    var rpuname = document.getElementById("rpuname");
+    var rpname = document.getElementById("rpname");
+    var rpgender_type = document.getElementById("rpgender_type");
+    var rpnic = document.getElementById("rpnic");
+    var rpdob = document.getElementById("rpdob");
+    var rpaddress = document.getElementById("rpaddress");
+    var rpcontact = document.getElementById("rpcontact");
+    var rpperson = document.getElementById("rpperson");
+    var rpnotes = document.getElementById("rpnotes");
+    var rppass = document.getElementById("rppass");
 
     var r = new XMLHttpRequest();
     r.onreadystatechange = function() {
@@ -356,6 +366,19 @@ function pdtails_update(pregno) {
             document.getElementById("pdtails").innerHTML = text;
         }
     }
+
+    var f = new FormData();
+    f.append("rppreg_no", rppreg_no);
+    f.append("rpuname", rpuname);
+    f.append("rpname", rpname);
+    f.append("rpgender_type", rpgender_type);
+    f.append("rpnic", rpnic);
+    f.append("rpdob", rpdob);
+    f.append("rpaddress", rpaddress);
+    f.append("rpcontact", rpcontact);
+    f.append("rpperson", rpperson);
+    f.append("rpnotes", rpnotes);
+    f.append("rppass", rppass);
 
     r.open("POST", "pdtails_update_recp.php", true);
     r.send();
