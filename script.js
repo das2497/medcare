@@ -86,6 +86,20 @@ function Mlogin() {
                 MtitleSM.style.color = "green";
                 // MtitleSM.style.display = "inline";
                 window.location = "receptionist.php";
+            } else if (text == "5") {
+                MunmSM.style.display = "none";
+                MpswdSM.style.display = "none";
+                MtitleSM.innerHTML = text;
+                MtitleSM.style.color = "green";
+                // MtitleSM.style.display = "inline";
+                window.location = "nurse.php";
+            } else if (text == "6") {
+                MunmSM.style.display = "none";
+                MpswdSM.style.display = "none";
+                MtitleSM.innerHTML = text;
+                MtitleSM.style.color = "green";
+                // MtitleSM.style.display = "inline";
+                window.location = "pharmacist.php";
             } else {
                 MunmSM.style.display = "none";
                 MpswdSM.style.display = "none";

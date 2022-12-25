@@ -27,7 +27,7 @@
                     <div class="col-12 col-lg-6 lgd d-block mt-6 mt-lg-0 text-center" id="lgd">
                         <div class="row">
                             <div class="col-12">
-                                <img src="assets/Untitled (800 × 800 px).svg" width="600px" class="mx-auto d-block d-lg-block">
+                                <img src="assets/Untitled (800 × 800 px).svg" width="80%" class="mx-auto d-block d-lg-block">
                             </div>
                             <div class="col-12">
                                 <h1 class="text-center ">MEDCARE MEDICAL CENTER</h1>
