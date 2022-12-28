@@ -122,6 +122,33 @@ INSERT INTO `gender` VALUES (1,'male'),(2,'female');
 UNLOCK TABLES;
 
 --
+-- Table structure for table `nurse`
+--
+
+DROP TABLE IF EXISTS `nurse`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `nurse` (
+  `nrs_id` int NOT NULL AUTO_INCREMENT,
+  `uname` varchar(50) COLLATE utf8mb4_bin NOT NULL,
+  `name` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL,
+  `passwrd` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL,
+  `nic` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL,
+  PRIMARY KEY (`nrs_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `nurse`
+--
+
+LOCK TABLES `nurse` WRITE;
+/*!40000 ALTER TABLE `nurse` DISABLE KEYS */;
+INSERT INTO `nurse` VALUES (1,'sarath','Sarath','8888','4444');
+/*!40000 ALTER TABLE `nurse` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `patient`
 --
 
@@ -188,6 +215,33 @@ LOCK TABLES `patient_channels` WRITE;
 /*!40000 ALTER TABLE `patient_channels` DISABLE KEYS */;
 INSERT INTO `patient_channels` VALUES (1,1,1,1,1);
 /*!40000 ALTER TABLE `patient_channels` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `pharmcist`
+--
+
+DROP TABLE IF EXISTS `pharmcist`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `pharmcist` (
+  `ph_id` int NOT NULL AUTO_INCREMENT,
+  `uname` varchar(50) COLLATE utf8mb4_bin NOT NULL,
+  `name` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL,
+  `nic` varchar(50) COLLATE utf8mb4_bin NOT NULL,
+  `passs` varchar(50) COLLATE utf8mb4_bin NOT NULL,
+  PRIMARY KEY (`ph_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `pharmcist`
+--
+
+LOCK TABLES `pharmcist` WRITE;
+/*!40000 ALTER TABLE `pharmcist` DISABLE KEYS */;
+INSERT INTO `pharmcist` VALUES (1,'akash','Akash','222','4444');
+/*!40000 ALTER TABLE `pharmcist` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -278,4 +332,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-12-07 13:55:20
+-- Dump completed on 2022-12-28 13:58:18
