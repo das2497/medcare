@@ -4,7 +4,7 @@ require 'connection.php';
 
 $rsub2 = Database::search("SELECT * FROM specialies;");
 ?>
-<div class="col-6 offset-6">
+<div class="col-6 offset-3 ">
     <select class="form-select" id="dchnlspecility" onchange="d_ch_slct();">
         <option value="x">Select Speciality</option>
         <?php

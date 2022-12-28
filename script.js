@@ -235,6 +235,44 @@ function doctor_logout() {
     r.send();
 }
 
+function nurse_logout() {
+
+    var r = new XMLHttpRequest();
+    r.onreadystatechange = function() {
+        if (r.readyState == 4) {
+            var text = r.responseText
+                //  alert(text);
+
+            if (text == 'success') {
+                window.location = 'index.php';
+            }
+
+        }
+    }
+
+    r.open("POST", "nurse_logout.php", true);
+    r.send();
+}
+
+function pharmacist_logout() {
+
+    var r = new XMLHttpRequest();
+    r.onreadystatechange = function() {
+        if (r.readyState == 4) {
+            var text = r.responseText
+                //  alert(text);
+
+            if (text == 'success') {
+                window.location = 'index.php';
+            }
+
+        }
+    }
+
+    r.open("POST", "pharmacist_logout.php", true);
+    r.send();
+}
+
 function recep_logout() {
 
     var r = new XMLHttpRequest();

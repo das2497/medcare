@@ -97,11 +97,14 @@ if (isset($_SESSION["AD"])) {
 
                             <!-- sidebar -->
 
-                            <div class="row d-none d-lg-flex vh-100">
-                                <div class="col-12 d-none d-lg-block px-sm-2 px-0 bg-dark">
+                            <div class="row ">
+                                <div class="col-12 d-none d-lg-flex vh-100 px-sm-2 px-0 bg-dark">
                                     <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white ">
                                         <h4 class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white">Menu</h4>
                                         <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
+                                            <li>
+                                                
+                                            </li>
                                             <li onclick="THdash();">
                                                 <a href="#submenu1" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
                                                     <i class="fs-4 bi-speedometer2"></i> <span class="ms-1 d-none d-sm-inline text-white">Dashboard</span> </a>
@@ -152,13 +155,13 @@ if (isset($_SESSION["AD"])) {
 
             <!-- footer -->
 
-            <footer class="row bg-warning fixed-bottom">
+            <!-- <footer class="row bg-warning fixed-bottom">
                 <div class="col-12 col-lg-4 offset-lg-4   text-center">
                     <img src="assets/Untitled (800 × 800 px).svg" alt="logo" width="100">
                     <h4 class="text-center text-white fs-5">MEDCARE MEDICAL CENTER</h4>
                     <p class="text-white text-center">BETER HEALTH | BETER LIFE</p>
                 </div>
-            </footer>
+            </footer> -->
 
             <!-- footer -->
 

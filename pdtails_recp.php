@@ -2,9 +2,10 @@
 session_start();
 require 'connection.php';
 
-$prs = Database::search("SELECT * FROM patient 
+$prs = Database::search("SELECT *
+FROM patient
 INNER JOIN gender ON patient.gender=gender.id
-INNER JOIN responsible ON patient.responsible=responsible.id;");
+INNER JOIN responsible ON patient.responsible=responsible.responsible_id;");
 
 $pn = $prs->num_rows;
 ?>

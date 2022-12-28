@@ -37,11 +37,11 @@ if (isset($_SESSION["DT"])) {
                     <div class="row  border-bottom border-4 border-primary shadow-lg bg-dark">
 
                         <div class="col-12 col-lg-4  text-center text-lg-start mt-3">
-                            <div class="row align-content-center">
+                            <div class="row align-content-center ">
                                 <div class="col-12 col-lg-1">
                                     <img alt="logo" src="assets/Untitled (800 × 800 px).svg" width="60px">
                                 </div>
-                                <div class="col-12 col-lg-11">
+                                <div class="col-12 col-lg-11 ">
                                     <h4 class=" mt-2 mt-lg-3 ms-lg-4 text-white">DOCTOR <?= $_SESSION["DT"]["name"]; ?></h4>
                                 </div>
                             </div>
@@ -172,13 +172,13 @@ if (isset($_SESSION["DT"])) {
 
             <!-- footer -->
 
-            <footer class="row bg-warning fixed-bottom">
+            <!-- <footer class="row bg-warning fixed-bottom">
                 <div class="col-12 col-lg-4 offset-lg-4   text-center">
                     <img src="assets/Untitled (800 × 800 px).svg" alt="logo" width="100">
                     <h4 class="text-center text-white fs-5">MEDCARE MEDICAL CENTER</h4>
                     <p class="text-white text-center">BETER HEALTH | BETER LIFE</p>
                 </div>
-            </footer>
+            </footer> -->
 
             <!-- footer -->
 
