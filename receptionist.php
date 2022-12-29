@@ -124,6 +124,61 @@ if (isset($_SESSION["RP"])) {
                                 <div class="col-12" id="THdash" style="display: block;">
                                     <h4>Channelings</h4>
 
+                                    <h4>Doctors</h4>
+
+                                    <div class="row" id="docdtails">
+                                        <?php
+                                        $rsub2 = Database::search("SELECT * FROM specialies;");
+                                        ?>
+                                        <div class="col-6 offset-3">
+                                            <select class="form-select" id="dchnlspecility" onchange="doctrs();">
+                                                <option value="x">Select Speciality</option>
+                                                <?php
+                                                $rsub2 = Database::search("SELECT * FROM specialies;");
+                                                while ($row2 = mysqli_fetch_assoc($rsub2)) {
+                                                ?>
+                                                    <option value="<?php echo $row2["id"]; ?>"><?php echo $row2["speciality"]; ?></option>
+                                                <?php
+                                                }
+                                                ?>
+                                            </select>
+                                        </div>
+
+                                        <div class="col-12 overflow-scroll " id="docchnl">
+
+                                            <table class=" table table-responsive table-striped shadow table-hover mt-4">
+                                                <thead>
+                                                    <tr>
+                                                        <th scope="col">Doctor's Name</th>
+                                                        <th>Speciality</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <?php
+
+                                                    $rs1 = Database::search("SELECT doctor.id, doctor.uname, doctor.name, doctor.specialty, specialies.speciality, doctor.password FROM doctor INNER JOIN specialies ON doctor.specialty=specialies.id;");
+                                                    $sn = $rs1->num_rows;
+
+                                                    for ($i = 0; $i < $sn; $i++) {
+                                                        $sd = $rs1->fetch_assoc();
+
+                                                    ?>
+                                                        <tr class="alert-info">
+                                                            <td><?php echo $sd["name"]; ?></td>
+                                                            <td><?php echo $sd["speciality"]; ?></td>
+                                                        </tr>
+
+                                                    <?php
+
+                                                    }
+
+                                                    ?>
+
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+
                                 </div>
 
                                 <!-- =============================================Channeling================================================================== -->

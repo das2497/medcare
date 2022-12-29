@@ -172,7 +172,7 @@ if (isset($_SESSION["PT"])) {
                                                         $day = date('l', strtotime($pchnlsd["date_time"]));
                                                         $time = $time->format('h:i a');
 
-                                                        if ($currentDate > $date) {
+                                                        if ($currentDate < $date) {
                                                             //  echo "yes";
                                                             Database::iud("UPDATE patient_channels SET `status`='0' WHERE p_chnl_id='" . $pchnlsd['p_chnl_id'] . "';");
                                                         } else {
@@ -203,50 +203,100 @@ if (isset($_SESSION["PT"])) {
                                 <div class="col-12" id="THprofile" style="display: none;">
                                     <h1>Profile</h1>
 
+                                    <?php
+                                    $rsprof = Database::search("SELECT *
+                                                FROM patient
+                                                INNER JOIN gender ON patient.gender=gender.id
+                                                INNER JOIN responsible ON patient.responsible=responsible.responsible_id
+                                                WHERE patient.preg_no='" . $_SESSION["PT"]["preg_no"] . "';");
+
+                                    $dtlsprof = $rsprof->fetch_assoc();
+                                    ?>
+
                                     <div class="row pt-4 shadow">
-                                        <div class="col-12 col-lg-6 offset-lg-6"><label class="labels">Registration Number</label>
-                                            <input type="text" class="form-control" placeholder="Username" value="<?php echo $_SESSION["PT"]["preg_no"]; ?>" id="THpreg_no">
+                                        <div class="col-12 col-lg-6 offset-lg-3"><label class="labels">Registration Number</label>
+                                            <input type="text" class="form-control" placeholder="Username" readonly value="<?php echo $_SESSION["PT"]["preg_no"]; ?>" id="ppreg_no">
                                         </div>
                                         <div class="col-12 col-lg-6"><label class="labels">Username</label>
-                                            <input type="text" class="form-control" placeholder="Username" value="<?php echo $_SESSION["PT"]["uname"]; ?>" id="THuname">
+                                            <input type="text" class="form-control" placeholder="Username" value="<?php echo $dtlsprof["uname"]; ?>" id="puname">
                                         </div>
                                         <div class="col-12 col-lg-6"><label class="labels">Full Name</label>
-                                            <input type="text" class="form-control" placeholder="Name" value="<?php echo $_SESSION["PT"]["name"]; ?>" id="THfulnm">
+                                            <input type="text" class="form-control" placeholder="Name" value="<?php echo $dtlsprof["name"]; ?>" id="pfullname">
                                         </div>
                                         <div class="col-md-12 col-lg-6"><label class="labels">Gender</label>
-                                            <input type="text" class="form-control" placeholder="Email" value="<?php echo $_SESSION["PT"]["gender_type"]; ?>" id="THemail">
+                                            <select class="form-control" id="pgender">
+                                                <option value="0">Select Gender</option>
+                                                <?php
+                                                if ($dtlsprof["gender_type"] == "male") {
+                                                ?>
+                                                    <option value="1" selected>male</option>
+                                                    <option value="2">female</option>
+                                                <?php
+                                                } else if ($dtlsprof["gender_type"] == "female") {
+                                                ?>
+                                                    <option value="1">male</option>
+                                                    <option value="2" selected>female</option>
+                                                <?php
+                                                }
+
+                                                ?>
+                                            </select>
                                         </div>
                                         <div class="col-md-12 col-lg-6"><label class="labels">N.I.C.</label>
-                                            <input type="text" class="form-control" placeholder="Email" value="<?php echo $_SESSION["PT"]["nic"]; ?>" id="THemail">
+                                            <input type="text" class="form-control" placeholder="Email" value="<?php echo $dtlsprof["nic"]; ?>" id="pnic">
                                         </div>
                                         <div class="col-12 col-md-6"><label class="labels">Birthday</label>
-                                            <input type="text" class="form-control" placeholder="Grade" value="<?php echo $_SESSION["PT"]["dob"]; ?>">
+                                            <input type="text" class="form-control" placeholder="Birthday" value="<?php echo $dtlsprof["dob"]; ?>" id="pdob">
                                         </div>
                                         <div class="col-12 col-md-6"><label class="labels">Address</label>
-                                            <input type="text" class="form-control" placeholder="Subject" value="<?php echo $_SESSION["PT"]["address"]; ?>">
+                                            <input type="text" class="form-control" placeholder="Address" value="<?php echo $dtlsprof["address"]; ?>" id="paddress">
                                         </div>
                                         <div class="col-12 col-md-6"><label class="labels">Contact</label>
-                                            <input type="text" class="form-control" placeholder="Subject" value="<?php echo $_SESSION["PT"]["contact"]; ?>">
+                                            <input type="text" class="form-control" placeholder="Contact" value="<?php echo $dtlsprof["contact"]; ?>" id="pcontact">
                                         </div>
                                         <div class="col-12 col-md-6"><label class="labels">Responsible</label>
-                                            <input type="text" class="form-control" placeholder="Subject" value="<?php echo $_SESSION["PT"]["person"]; ?>">
+                                            <select class="form-control" id="presponsible">
+                                                <option value="0">Select Responsible Person</option>
+                                                <?php
+                                                if ($dtlsprof["person"] == "self") {
+                                                ?>
+                                                    <option value="1" selected>self</option>
+                                                    <option value="2">patient</option>
+                                                    <option value="3">guardian</option>
+                                                <?php
+                                                } else if ($dtlsprof["person"] == "patient") {
+                                                ?>
+                                                    <option value="1">self</option>
+                                                    <option value="2" selected>patient</option>
+                                                    <option value="3">guardian</option>
+                                                <?php
+                                                } else if ($dtlsprof["person"] == "guardian") {
+                                                ?>
+                                                    <option value="1">self</option>
+                                                    <option value="2">patient</option>
+                                                    <option value="3" selected>guardian</option>
+                                                <?php
+                                                }
+
+                                                ?>
+                                            </select>
                                         </div>
-                                        <div class="col-12 col-md-6"><label class="labels">special Notes</label>
-                                            <textarea class="form-control" id="" cols="auto" rows="auto"><?php echo $_SESSION["PT"]["notes"]; ?></textarea>
+                                        <div class="col-12 col-md-6"><label class="labels">Special Notes</label>
+                                            <textarea class="form-control" cols="auto" rows="auto" id="pspecialnotes"><?php echo $dtlsprof["notes"]; ?></textarea>
                                         </div>
                                         <div class="col-md-12 col-lg-6"><label class="labels">Password</label>
-                                            <input type="text" class="form-control" placeholder="Password" value="<?php echo $_SESSION["PT"]["pass"]; ?>" id="THpass">
+                                            <input type="text" class="form-control" placeholder="Password" value="<?php echo $dtlsprof["pass"]; ?>" id="ppass">
                                         </div>
 
-                                        <div class="col-10 offset-1 col-lg-4 offset-lg-4 d-grid mt-5">
-                                            <button class="btn btn-primary profile-button" type="button" onclick="">Update Profile</button>
+                                        <div class="col-10 offset-1 col-lg-4 offset-lg-4 d-grid my-5">
+                                            <button class="btn btn-outline-primary fw-bold profile-button" type="button" onclick="patient_dtails_update();">Update Profile</button>
                                         </div>
                                     </div>
 
                                 </div>
                                 <!-- ==========profile================================================================================== -->
 
-                                <!-- ==========lessons============================================================================================= -->
+                                <!-- ==========Doctor Channel============================================================================================= -->
                                 <div class="col-12" id="THlessons" style="display: none;">
                                     <h1>Doctor Channel</h1>
 
@@ -280,7 +330,8 @@ if (isset($_SESSION["PT"])) {
                                                 <tbody>
                                                     <?php
 
-                                                    $rs1 = Database::search("SELECT doctor.id, doctor.uname, doctor.name, doctor.specialty, specialies.speciality, doctor.password FROM doctor INNER JOIN specialies ON doctor.specialty=specialies.id;");
+                                                    $rs1 = Database::search("SELECT doctor.id, doctor.uname, doctor.name, doctor.specialty, specialies.speciality, doctor.password FROM doctor 
+                                                    INNER JOIN specialies ON doctor.specialty=specialies.id;");
                                                     $sn = $rs1->num_rows;
 
                                                     for ($i = 0; $i < $sn; $i++) {
@@ -289,7 +340,7 @@ if (isset($_SESSION["PT"])) {
                                                     ?>
                                                         <tr class="alert-info">
                                                             <td><?php echo $sd["name"]; ?></td>
-                                                            <td><button onclick="doctorDetails('<?php echo $sd['id']; ?>','<?php echo $sd['name']; ?>');" class="btn btn-primary">View Details</button></td>
+                                                            <td><button onclick="doctorDetails('<?php echo $sd['id']; ?>','<?php echo $sd['name']; ?>');" class="btn btn-outline-primary fw-bold">View Details</button></td>
                                                         </tr>
 
                                                     <?php
@@ -304,7 +355,7 @@ if (isset($_SESSION["PT"])) {
                                     </div>
 
                                 </div>
-                                <!-- ==========lessons================================================================================== -->
+                                <!-- ==========Doctor Channel================================================================================== -->
 
                                 <!-- ==========assignments============================================================================================= -->
                                 <div class="col-12" id="THassignments" style="display: none;">

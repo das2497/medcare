@@ -178,6 +178,29 @@ function d_ch_slct() {
     r.send(f);
 }
 
+function doctrs() {
+    var specid = document.getElementById("dchnlspecility").value;
+
+
+    var f = new FormData();
+    f.append("specid", specid);
+
+    var r = new XMLHttpRequest();
+
+    r.onreadystatechange = function() {
+        if (r.readyState == 4) {
+            var text = r.responseText
+                //  alert(text);
+
+            document.getElementById("docchnl").innerHTML = text;
+
+        }
+    }
+
+    r.open("POST", "doctors.php", true);
+    r.send(f);
+}
+
 function admin_logout() {
 
     var r = new XMLHttpRequest();
@@ -433,6 +456,46 @@ function pdtails_update(pregno) {
     f.append("rppass", rppass);
 
     r.open("POST", "pdtails_update_recp.php", true);
-    r.send();
+    r.send(f);
+
+}
+
+function patient_dtails_update() {
+
+    var ppreg_no = document.getElementById("ppreg_no");
+    var puname = document.getElementById("puname");
+    var pfullname = document.getElementById("pfullname");
+    var pgender = document.getElementById("pgender");
+    var pnic = document.getElementById("pnic");
+    var pdob = document.getElementById("pdob");
+    var paddress = document.getElementById("paddress");
+    var pcontact = document.getElementById("pcontact");
+    var presponsible = document.getElementById("presponsible");
+    var pspecialnotes = document.getElementById("pspecialnotes");
+    var ppass = document.getElementById("ppass");
+
+    var r = new XMLHttpRequest();
+    r.onreadystatechange = function() {
+        if (r.readyState == 4) {
+            var text = r.responseText
+            alert(text);
+        }
+    }
+
+    var f = new FormData();
+    f.append("ppreg_no", ppreg_no.value);
+    f.append("puname", puname.value);
+    f.append("pfullname", pfullname.value);
+    f.append("pgender", pgender.value);
+    f.append("pnic", pnic.value);
+    f.append("pdob", pdob.value);
+    f.append("paddress", paddress.value);
+    f.append("pcontact", pcontact.value);
+    f.append("presponsible", presponsible.value);
+    f.append("pspecialnotes", pspecialnotes.value);
+    f.append("ppass", ppass.value);
+
+    r.open("POST", "pdtails_update_process.php", true);
+    r.send(f);
 
 }
