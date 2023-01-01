@@ -552,3 +552,59 @@ function add_prescription() {
 function saveprescrip() {
     alert("ok");
 }
+
+//===============================Lab Report Upload===================================================================================================
+
+function upload_lab_report() {
+    alert("okll");
+    var pid = document.getElementById("pidnurse").value; // patient id
+
+    alert(pid);
+
+    if (pid == "") {
+        document.getElementById("pidawarning").innerHTML = "Pleace Enrer Patient Id";
+    } else {
+
+        var view = document.getElementById("viewreportname"); //view tag
+        var file = document.getElementById("uploadlabreport"); //file chooser
+
+        file.onchange = function() {
+            var file1 = this.files[0];
+            var url1 = window.URL.createObjectURL(file1);
+            view.innerHTML = url1;
+            document.getElementById("pidawarning").innerHTML = "";
+            upload_repot(pid);
+        }
+    }
+}
+
+function upload_repot(pid) {
+    alert("upload_repot_function");
+    var file = document.getElementById("uploadlabreport");
+    var form = new FormData();
+    if (file.files.length == 0) {
+        document.getElementById("pidawarning").innerHTML = "Pleace Select the Lab Report to upload";
+    } else {
+        form.append("file", file.files[0]);
+        form.append("pid", pid);
+    }
+    var r = new XMLHttpRequest();
+    r.onreadystatechange = function() {
+        if (r.readyState == 4) {
+            var t = r.responseText;
+            alert(t);
+            if (t == "Successfull") {
+                document.getElementById("successfulUpload").style.display = "block";
+                document.getElementById("successfulUpload").innerHTML = "Successfully Uploaded";
+                window.location.reload();
+            } else {
+                document.getElementById("errorUpload").style.display = "block";
+                document.getElementById("errorUpload").innerHTML = t;
+            }
+        }
+    }
+    r.open("POST", "upload_lab_report.php", true);
+    r.send(form);
+}
+
+//===================================================================================================================================================================

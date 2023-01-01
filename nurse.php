@@ -109,9 +109,24 @@ if (isset($_SESSION["NR"])) {
 
                         <div class="col-12 col-lg-10 ">
 
-                        <h2 class="text-center">Lab Reports</h2>
-                            <div class="row">
-                                <div class="col-12 col-lg-8 offset-lg-1">
+                            <h2 class="text-center">Lab Reports</h2>
+                            <div class="row">                            
+                                <div class="col-12 my-2">
+                                    <div class="row">
+                                        <h4 class="text-success text-center" style="display: none;" id="successfulUpload"></h4>
+                                        <h4 class="text-danger text-center" style="display: none;" id="errorUpload"></h4>
+                                        <div class="col-10 offset-1 col-lg-4 offset-lg-2"><label class="form-label" ><small class="text-danger">*</small>Enter Patient Id</label>
+                                        <small class="text-danger d-inline fw-bold" id="pidawarning"></small>
+                                            <input type="text" class="form-control" placeholder="Enter Patient Id" id="pidnurse">
+                                        </div>
+                                        <div class="col-10 offset-1 col-lg-2 offset-lg-0 mt-2">
+                                            <label onclick="upload_lab_report();" class="btn btn-outline-primary fw-bold fw-bolder" for="uploadlabreport">Upload</label>
+                                            <input type="file" class="d-none" id="uploadlabreport" />
+                                            <small id="viewreportname"></small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-lg-8 offset-lg-2 mt-4">
                                     <div class="input-group mb-3">
                                         <div class="input-group-prepend">
                                             <span class="input-group-text" id="basic-addon1">Search</span>
@@ -119,12 +134,11 @@ if (isset($_SESSION["NR"])) {
                                         <input type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon1">
                                     </div>
                                 </div>
-                                <div class="col-10 offset-1 col-lg-2 offset-lg-1 d-grid">
-                                    <button class="btn btn-outline-primary fw-bold fs-4">Uploal</button>
-                                </div>
-                                <div class="col-12">
-                                    <div class="row border m-4 p-4 rounded" id="prescripsrchrslt">
-                                        <p class="text-center">Please Search Lab Report</p>
+                                <div class="row">
+                                    <div class="col-12">
+                                        <div class="row border m-4 p-4 rounded" id="prescripsrchrslt">
+                                            <p class="text-center">Please Search Lab Report</p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>

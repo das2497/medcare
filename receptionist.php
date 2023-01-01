@@ -156,7 +156,8 @@ if (isset($_SESSION["RP"])) {
                                                 <tbody>
                                                     <?php
 
-                                                    $rs1 = Database::search("SELECT doctor.id, doctor.uname, doctor.name, doctor.specialty, specialies.speciality, doctor.password FROM doctor INNER JOIN specialies ON doctor.specialty=specialies.id;");
+                                                    $rs1 = Database::search("SELECT doctor.id, doctor.uname, doctor.name, doctor.specialty, specialies.speciality, doctor.password FROM doctor 
+                                                    INNER JOIN specialies ON doctor.specialty=specialies.id;");
                                                     $sn = $rs1->num_rows;
 
                                                     for ($i = 0; $i < $sn; $i++) {
@@ -188,7 +189,7 @@ if (isset($_SESSION["RP"])) {
                                 <div class="col-12" id="THprofile" style="display: none;">
                                     <h4>Patients </h4>
                                     <div class="row">
-                                        <div class="col-10 offset-1 shadow m-2" id="pdtails">
+                                        <div class="col-12 col-lg-10 shadow mt-2" id="pdtails">
                                             <?php
                                             $prs = Database::search("SELECT * FROM patient
                                                 INNER JOIN gender ON patient.gender=gender.id
@@ -217,6 +218,9 @@ if (isset($_SESSION["RP"])) {
                                                     ?>
                                                 </tbody>
                                             </table>
+                                        </div>
+                                        <div class="col-10 offset-1 col-lg-2 offset-lg-0 ">
+                                            <a href="register_patient_resp.php" class="btn btn-outline-primary fw-bold  mx-auto d-flex p-2" target="_blank">Register Patient</a>
                                         </div>
                                     </div>
                                 </div>

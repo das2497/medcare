@@ -85,9 +85,9 @@ $d = $rs->fetch_assoc();
     </div>
 
     <div class="col-10 offset-1 col-lg-4 offset-lg-1 d-grid my-4">
-        <button class="btn btn-primary profile-button" type="button" onclick="pdtails_update('<?php echo $d['preg_no']; ?>');">Update Profile</button>
+        <button class="btn btn-outline-primary fw-bold profile-button" type="button" onclick="pdtails_update('<?php echo $d['preg_no']; ?>');">Update Profile</button>
     </div>
     <div class="col-10 offset-1 col-lg-4 offset-lg-1 d-grid my-4">
-        <button class="btn btn-danger profile-button" type="button" onclick="pdtails_back();">Go Back</button>
+        <button class="btn btn-outline-danger fw-bold profile-button" type="button" onclick="pdtails_back();">Go Back</button>
     </div>
 </div>
