@@ -556,10 +556,7 @@ function saveprescrip() {
 //===============================Lab Report Upload===================================================================================================
 
 function upload_lab_report() {
-    alert("okll");
     var pid = document.getElementById("pidnurse").value; // patient id
-
-    alert(pid);
 
     if (pid == "") {
         document.getElementById("pidawarning").innerHTML = "Pleace Enrer Patient Id";
@@ -579,7 +576,6 @@ function upload_lab_report() {
 }
 
 function upload_repot(pid) {
-    alert("upload_repot_function");
     var file = document.getElementById("uploadlabreport");
     var form = new FormData();
     if (file.files.length == 0) {
@@ -608,3 +604,35 @@ function upload_repot(pid) {
 }
 
 //===================================================================================================================================================================
+
+function search_lab_report() {
+    var pid = document.getElementById("searchreportnurse").value;
+    var r = new XMLHttpRequest();
+    r.onreadystatechange = function() {
+        if (r.readyState == 4) {
+            var t = r.responseText;
+            // alert(t);
+            document.getElementById("prescripsrchrslt").innerHTML = t;
+        }
+    }
+    var f = new FormData();
+    f.append("pid", pid);
+    r.open("POST", "searchlabreportprocess.php", true);
+    r.send(f);
+}
+
+function srchprescrippharmc() {
+    var pid = document.getElementById("prescripsrch").value;
+    var r = new XMLHttpRequest();
+    r.onreadystatechange = function() {
+        if (r.readyState == 4) {
+            var t = r.responseText;
+            // alert(t);
+            document.getElementById("prescripsrchrslt").innerHTML = t;
+        }
+    }
+    var f = new FormData();
+    f.append("pid", pid);
+    r.open("POST", "srchprescrippharmcprocess.php", true);
+    r.send(f);
+}

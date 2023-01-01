@@ -119,8 +119,8 @@ if (isset($_SESSION["NR"])) {
                                         <small class="text-danger d-inline fw-bold" id="pidawarning"></small>
                                             <input type="text" class="form-control" placeholder="Enter Patient Id" id="pidnurse">
                                         </div>
-                                        <div class="col-10 offset-1 col-lg-2 offset-lg-0 mt-2">
-                                            <label onclick="upload_lab_report();" class="btn btn-outline-primary fw-bold fw-bolder" for="uploadlabreport">Upload</label>
+                                        <div class="col-10 offset-1 col-lg-2 offset-lg-0 mt-4 d-grid">
+                                            <label onclick="upload_lab_report();" class="btn btn-outline-primary fw-bold fw-bolder " for="uploadlabreport">Upload</label>
                                             <input type="file" class="d-none" id="uploadlabreport" />
                                             <small id="viewreportname"></small>
                                         </div>
@@ -131,12 +131,12 @@ if (isset($_SESSION["NR"])) {
                                         <div class="input-group-prepend">
                                             <span class="input-group-text" id="basic-addon1">Search</span>
                                         </div>
-                                        <input type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon1">
+                                        <input type="text" class="form-control" onkeyup="search_lab_report();" id="searchreportnurse">
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-12">
-                                        <div class="row border m-4 p-4 rounded" id="prescripsrchrslt">
+                                    <div class="col-12 ">
+                                        <div class="row border m-4  rounded " id="prescripsrchrslt">
                                             <p class="text-center">Please Search Lab Report</p>
                                         </div>
                                     </div>
@@ -155,20 +155,6 @@ if (isset($_SESSION["NR"])) {
                 </div>
 
             </div>
-
-
-
-            <!-- footer -->
-
-            <!-- <footer class="row bg-warning fixed-bottom">
-                <div class="col-12 col-lg-4 offset-lg-4   text-center">
-                    <img src="assets/Untitled (800 × 800 px).svg" alt="logo" width="100">
-                    <h4 class="text-center text-white fs-5">MEDCARE MEDICAL CENTER</h4>
-                    <p class="text-white text-center">BETER HEALTH | BETER LIFE</p>
-                </div>
-            </footer> -->
-
-            <!-- footer -->
 
         </div>
 

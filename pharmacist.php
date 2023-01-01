@@ -115,16 +115,16 @@ if (isset($_SESSION["PH"])) {
                                 <div class="col-12 col-lg-8 offset-lg-1">
                                     <div class="input-group mb-3">
                                         <div class="input-group-prepend">
-                                            <span class="input-group-text" id="basic-addon1">Search</span>
+                                            <span class="input-group-text" id="basic-addon1" >Search</span>
                                         </div>
-                                        <input type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon1">
+                                        <input onkeyup="srchprescrippharmc();" type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon1" id="prescripsrch">
                                     </div>
                                 </div>
                                 <div class="col-10 offset-1 col-lg-2 offset-lg-1 d-grid">
                                     <button class="btn btn-outline-primary fw-bold fs-4">Print</button>
                                 </div>
                                 <div class="col-12">
-                                    <div class="row border m-4 p-4 rounded" id="prescripsrchrslt">
+                                    <div class="row border m-4 p-4 rounded " id="prescripsrchrslt">
                                         <p class="text-center">Please Search Prescription</p>
                                     </div>
                                 </div>
