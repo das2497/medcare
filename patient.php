@@ -302,8 +302,12 @@ if (isset($_SESSION["PT"])) {
 
                                     <div class="row" id="docdtails">
                                         <div class="col-12 col-lg-2 offset-lg-2 input-group w-50">
-                                            <span class="input-group-text bg-transparent" id="inputGroup-sizing-default">Search</span>
-                                            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="" onkeyup="">
+                                            <div class="input-group mb-3">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text" id="basic-addon1">Search</span>
+                                                </div>
+                                                <input type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon1">
+                                            </div>
                                         </div>
                                         <?php
                                         $rsub2 = Database::search("SELECT * FROM specialies;");

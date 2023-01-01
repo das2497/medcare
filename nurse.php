@@ -49,19 +49,15 @@ if (isset($_SESSION["NR"])) {
 
                         <div class="col-12 col-lg-3 offset-lg-5  pt-3 mb-4">
 
-                            <nav class="navbar navbar-expand-lg navbar-light menu1 float-lg-end">
+                            <nav class="navbar navbar-expand-lg navbar-dark menu1 float-lg-end">
                                 <div class="container-fluid ">
-                                    <!-- <a class="navbar-brand d-block d-lg-none text-white" href="#">Menu</a> -->
                                     <button class="navbar-toggler text-white " type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                                         <span class="navbar-toggler-icon "></span>
                                     </button>
                                     <div class="collapse navbar-collapse " id="navbarSupportedContent">
                                         <ul class="navbar-nav mb-2 mb-lg-0 text-end  ">
-                                            <li class="nav-item" onclick="THdash();">
+                                            <li class="nav-item" onclick="">
                                                 <a class="nav-link fw-bold d-block d-lg-none text-white" aria-current="page" href="#">Insert Lab Reports</a>
-                                            </li>
-                                            <li class="nav-item" onclick="THdash();">
-                                                <a class="nav-link fw-bold d-block d-lg-none text-white" aria-current="page" href="#">Check Lab Reports</a>
                                             </li>
                                             <hr class="my-1 text-white border border-bottom ">
                                             <li>
@@ -100,10 +96,6 @@ if (isset($_SESSION["NR"])) {
                                                 <a href="#submenu1" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
                                                     <i class="fs-4 bi-speedometer2"></i> <span class="ms-1 d-none d-sm-inline text-white">Insert Lab Reports</span> </a>
                                             </li>
-                                            <li>
-                                                <a href="#submenu1" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
-                                                    <i class="fs-4 bi-speedometer2"></i> <span class="ms-1 d-none d-sm-inline text-white">Check Lab Reports</span> </a>
-                                            </li>
                                         </ul>
                                     </div>
                                 </div>
@@ -117,7 +109,25 @@ if (isset($_SESSION["NR"])) {
 
                         <div class="col-12 col-lg-10 ">
 
-                            
+                        <h2 class="text-center">Lab Reports</h2>
+                            <div class="row">
+                                <div class="col-12 col-lg-8 offset-lg-1">
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text" id="basic-addon1">Search</span>
+                                        </div>
+                                        <input type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon1">
+                                    </div>
+                                </div>
+                                <div class="col-10 offset-1 col-lg-2 offset-lg-1 d-grid">
+                                    <button class="btn btn-outline-primary fw-bold fs-4">Uploal</button>
+                                </div>
+                                <div class="col-12">
+                                    <div class="row border m-4 p-4 rounded" id="prescripsrchrslt">
+                                        <p class="text-center">Please Search Lab Report</p>
+                                    </div>
+                                </div>
+                            </div>
 
                         </div>
 

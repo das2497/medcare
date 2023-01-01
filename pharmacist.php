@@ -108,11 +108,26 @@ if (isset($_SESSION["PH"])) {
 
                         <!-- Dashboard -->
 
-                        <div class="col-12 col-lg-10 ">
+                        <div class="col-12 col-lg-10 " >
 
                             <h2 class="text-center">Prescriptions</h2>
                             <div class="row">
-
+                                <div class="col-12 col-lg-8 offset-lg-1">
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text" id="basic-addon1">Search</span>
+                                        </div>
+                                        <input type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon1">
+                                    </div>
+                                </div>
+                                <div class="col-10 offset-1 col-lg-2 offset-lg-1 d-grid">
+                                    <button class="btn btn-outline-primary fw-bold fs-4">Print</button>
+                                </div>
+                                <div class="col-12">
+                                    <div class="row border m-4 p-4 rounded" id="prescripsrchrslt">
+                                        <p class="text-center">Please Search Prescription</p>
+                                    </div>
+                                </div>
                             </div>
 
                         </div>

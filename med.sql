@@ -55,7 +55,7 @@ CREATE TABLE `d_chanel_time` (
   PRIMARY KEY (`chnl_id`) USING BTREE,
   KEY `FK__doctor` (`doc_id`),
   CONSTRAINT `FK__doctor` FOREIGN KEY (`doc_id`) REFERENCES `doctor` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -64,7 +64,7 @@ CREATE TABLE `d_chanel_time` (
 
 LOCK TABLES `d_chanel_time` WRITE;
 /*!40000 ALTER TABLE `d_chanel_time` DISABLE KEYS */;
-INSERT INTO `d_chanel_time` VALUES (1,'2022-12-07 15:00:47',1,1),(2,'2022-12-06 20:30:25',1,0);
+INSERT INTO `d_chanel_time` VALUES (1,'2022-12-07 15:00:47',1,1),(2,'2022-12-06 20:30:25',1,1),(3,'2022-12-30 14:49:41',1,1);
 /*!40000 ALTER TABLE `d_chanel_time` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -119,6 +119,33 @@ LOCK TABLES `gender` WRITE;
 /*!40000 ALTER TABLE `gender` DISABLE KEYS */;
 INSERT INTO `gender` VALUES (1,'male'),(2,'female');
 /*!40000 ALTER TABLE `gender` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `lab_reports`
+--
+
+DROP TABLE IF EXISTS `lab_reports`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `lab_reports` (
+  `lbr_id` int NOT NULL AUTO_INCREMENT,
+  `petiont` int NOT NULL,
+  `path` text COLLATE utf8mb4_bin NOT NULL,
+  `date` date NOT NULL,
+  PRIMARY KEY (`lbr_id`),
+  KEY `FK__patient2` (`petiont`),
+  CONSTRAINT `FK__patient2` FOREIGN KEY (`petiont`) REFERENCES `patient` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `lab_reports`
+--
+
+LOCK TABLES `lab_reports` WRITE;
+/*!40000 ALTER TABLE `lab_reports` DISABLE KEYS */;
+/*!40000 ALTER TABLE `lab_reports` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -182,7 +209,7 @@ CREATE TABLE `patient` (
 
 LOCK TABLES `patient` WRITE;
 /*!40000 ALTER TABLE `patient` DISABLE KEYS */;
-INSERT INTO `patient` VALUES (1,'p66666','kasun','Kasun Gamage',1,'98568','1995-02-08','no 1, main road.','0774567890','kkkkkkkkkkkkkkkkkkkkkkkk',1,'0000');
+INSERT INTO `patient` VALUES (1,'p66666','kasun','Kasun Gamage',1,'98568','1995-02-08','no 1, main road.','0774567890','ggggg',1,'0000');
 /*!40000 ALTER TABLE `patient` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -242,6 +269,38 @@ LOCK TABLES `pharmcist` WRITE;
 /*!40000 ALTER TABLE `pharmcist` DISABLE KEYS */;
 INSERT INTO `pharmcist` VALUES (1,'akash','Akash','222','4444');
 /*!40000 ALTER TABLE `pharmcist` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `prescription`
+--
+
+DROP TABLE IF EXISTS `prescription`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `prescription` (
+  `pres_id` int NOT NULL AUTO_INCREMENT,
+  `doc_id` int NOT NULL,
+  `pat_id` int NOT NULL,
+  `date` date NOT NULL,
+  `drugs_doses` text COLLATE utf8mb4_bin NOT NULL,
+  `notes` text COLLATE utf8mb4_bin NOT NULL,
+  PRIMARY KEY (`pres_id`),
+  KEY `FK_prescription_doctor` (`doc_id`),
+  KEY `FK_prescription_patient` (`pat_id`),
+  CONSTRAINT `FK_prescription_doctor` FOREIGN KEY (`doc_id`) REFERENCES `doctor` (`id`),
+  CONSTRAINT `FK_prescription_patient` FOREIGN KEY (`pat_id`) REFERENCES `patient` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `prescription`
+--
+
+LOCK TABLES `prescription` WRITE;
+/*!40000 ALTER TABLE `prescription` DISABLE KEYS */;
+INSERT INTO `prescription` VALUES (1,1,1,'2022-12-31','eeeeeeee','dddddddd'),(2,1,1,'2022-12-31','ggggg','kkkk'),(3,1,1,'2022-12-31','ffffffff','jjjjj');
+/*!40000 ALTER TABLE `prescription` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -332,4 +391,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-12-28 13:58:18
+-- Dump completed on 2023-01-01 11:20:04

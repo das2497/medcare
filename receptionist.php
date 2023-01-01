@@ -210,7 +210,7 @@ if (isset($_SESSION["RP"])) {
                                                         <tr class="table-info">
                                                             <td><?= $pd["preg_no"] ?></td>
                                                             <td><?= $pd["name"] ?></td>
-                                                            <td><button onclick="recp_patient_dtails('<?= $pd['preg_no'] ?>');" class="btn btn-primary">View Details</button></td>
+                                                            <td><button onclick="recp_patient_dtails('<?= $pd['preg_no'] ?>');" class="btn btn-outline-primary fw-bold">View Details</button></td>
                                                         </tr>
                                                     <?php
                                                     }
