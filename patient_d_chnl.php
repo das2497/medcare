@@ -39,7 +39,7 @@ $rsub2 = Database::search("SELECT * FROM specialies;");
             ?>
                 <tr class="alert-info">
                     <td><?php echo $sd["name"]; ?></td>
-                    <td><button onclick="doctorDetails('<?php echo $sd['id']; ?>');" class="btn btn-primary">View Details</button></td>
+                    <td><button onclick="doctorDetails('<?php echo $sd['id']; ?>');" class="btn btn-outline-primary fw-bold">View Channelings</button></td>
                 </tr>
 
             <?php

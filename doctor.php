@@ -51,7 +51,6 @@ if (isset($_SESSION["DT"])) {
 
                             <nav class="navbar navbar-expand-lg navbar-light menu1 float-lg-end">
                                 <div class="container-fluid ">
-                                    <!-- <a class="navbar-brand d-block d-lg-none text-white" href="#">Menu</a> -->
                                     <button class="navbar-toggler text-white " type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                                         <span class="navbar-toggler-icon "></span>
                                     </button>
@@ -110,24 +109,28 @@ if (isset($_SESSION["DT"])) {
 
                         <div class="col-12 col-lg-10 ">
 
-                            <div class="row ">
-                                <div class="col-10 offset-1 col-lg-8 offset-lg-0 shadow m-2">
+                            <div class="row" id="dappoimnts">
+                                <div class="col-10 offset-1 col-lg-8 offset-lg-0 shadow m-2" >
                                     <?php
-                                    $dcrs = Database::search("SELECT * FROM patient_channels 
-                                INNER JOIN patient ON patient_channels.patient_id=patient.id
-                                INNER JOIN d_chanel_time ON patient_channels.chnl_id=d_chanel_time.chnl_id
-                                WHERE d_chanel_time.doc_id='1' AND DAY(d_chanel_time.date_time) = DAY(CURDATE()) AND patient_channels.paid='1' AND patient_channels.`status`='1';");
+                                    $dcrs = Database::search("SELECT *
+                                    FROM patient_channels
+                                    INNER JOIN patient ON patient_channels.patient_id=patient.id
+                                    INNER JOIN d_chanel_time ON patient_channels.chnl_id=d_chanel_time.chnl_id
+                                    WHERE d_chanel_time.doc_id='1' AND 
+                                    DAY(d_chanel_time.date_time) < CURDATE() AND 
+                                    patient_channels.paid='1' AND 
+                                    patient_channels.`status`='1';");
 
                                     $dcn = $dcrs->num_rows;
 
                                     ?>
-                                    <h4 class="text-center">Today My Channels</h4>
+                                    <h4 class="text-center">Today My Appoinments</h4>
                                     <table class="table table-responsive table-striped">
                                         <thead>
                                             <tr>
-                                                <th>Registration No</th>
+                                                <th>Patient Registration No</th>
                                                 <th>Patient Name</th>
-                                                <th>Checked status</th>
+                                                <th>Open</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -140,10 +143,7 @@ if (isset($_SESSION["DT"])) {
                                                     <td><?= $dcd["preg_no"]; ?></td>
                                                     <td><?= $dcd["name"]; ?></td>
                                                     <td>
-                                                        <div class="form-check form-switch">
-                                                            <input onclick="checkedPatient('<?= $dcd['preg_no']; ?>');" class="form-check-input" type="checkbox" id="pchecked">
-                                                            <label id="chklbl" class="fw-bold"></label>
-                                                        </div>
+                                                        <button id="pchecked" class="btn btn-outline-primary fw-bold" onclick="checkedPatient('<?= $dcd['preg_no']; ?>');">Open Appoinment</button>
                                                     </td>
                                                 </tr>
                                             <?php
@@ -161,26 +161,11 @@ if (isset($_SESSION["DT"])) {
 
                     </div>
 
-
                     <!-- body -->
 
                 </div>
 
             </div>
-
-
-
-            <!-- footer -->
-
-            <!-- <footer class="row bg-warning fixed-bottom">
-                <div class="col-12 col-lg-4 offset-lg-4   text-center">
-                    <img src="assets/Untitled (800 × 800 px).svg" alt="logo" width="100">
-                    <h4 class="text-center text-white fs-5">MEDCARE MEDICAL CENTER</h4>
-                    <p class="text-white text-center">BETER HEALTH | BETER LIFE</p>
-                </div>
-            </footer> -->
-
-            <!-- footer -->
 
         </div>
 

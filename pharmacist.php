@@ -110,7 +110,10 @@ if (isset($_SESSION["PH"])) {
 
                         <div class="col-12 col-lg-10 ">
 
+                            <h2 class="text-center">Prescriptions</h2>
+                            <div class="row">
 
+                            </div>
 
                         </div>
 
@@ -124,20 +127,6 @@ if (isset($_SESSION["PH"])) {
                 </div>
 
             </div>
-
-
-
-            <!-- footer -->
-
-            <!-- <footer class="row bg-warning fixed-bottom">
-                <div class="col-12 col-lg-4 offset-lg-4   text-center">
-                    <img src="assets/Untitled (800 × 800 px).svg" alt="logo" width="100">
-                    <h4 class="text-center text-white fs-5">MEDCARE MEDICAL CENTER</h4>
-                    <p class="text-white text-center">BETER HEALTH | BETER LIFE</p>
-                </div>
-            </footer> -->
-
-            <!-- footer -->
 
         </div>
 

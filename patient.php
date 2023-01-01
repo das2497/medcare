@@ -301,10 +301,14 @@ if (isset($_SESSION["PT"])) {
                                     <h1>Doctor Channel</h1>
 
                                     <div class="row" id="docdtails">
+                                        <div class="col-12 col-lg-2 offset-lg-2 input-group w-50">
+                                            <span class="input-group-text bg-transparent" id="inputGroup-sizing-default">Search</span>
+                                            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="" onkeyup="">
+                                        </div>
                                         <?php
                                         $rsub2 = Database::search("SELECT * FROM specialies;");
                                         ?>
-                                        <div class="col-6 offset-3">
+                                        <div class="col-12 col-lg-3">
                                             <select class="form-select" id="dchnlspecility" onchange="d_ch_slct();">
                                                 <option value="x">Select Speciality</option>
                                                 <?php
@@ -340,7 +344,7 @@ if (isset($_SESSION["PT"])) {
                                                     ?>
                                                         <tr class="alert-info">
                                                             <td><?php echo $sd["name"]; ?></td>
-                                                            <td><button onclick="doctorDetails('<?php echo $sd['id']; ?>','<?php echo $sd['name']; ?>');" class="btn btn-outline-primary fw-bold">View Details</button></td>
+                                                            <td><button onclick="doctorDetails('<?php echo $sd['id']; ?>','<?php echo $sd['name']; ?>');" class="btn btn-outline-primary fw-bold">View Channelings</button></td>
                                                         </tr>
 
                                                     <?php

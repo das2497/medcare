@@ -371,16 +371,34 @@ function make_appointment(chnlid, pid) {
     r.send(f);
 }
 
+// function checkedPatient(pregno) {
+
+//     var pchecked = document.getElementById("pchecked");
+
+//     if (pchecked.checked != "true") {
+//         document.getElementById("chklbl").innerHTML = "checked";
+//         pchecked.disabled = "true";
+//     }
+
+//     var r = new XMLHttpRequest();
+
+// }
+
 function checkedPatient(pregno) {
 
-    var pchecked = document.getElementById("pchecked");
-
-    if (pchecked.checked != "true") {
-        document.getElementById("chklbl").innerHTML = "checked";
-        pchecked.disabled = "true";
+    var r = new XMLHttpRequest();
+    r.onreadystatechange = function() {
+        if (r.readyState == 4) {
+            var text = r.responseText
+                //  alert(text);
+            document.getElementById("dappoimnts").innerHTML = text;
+        }
     }
 
-    var r = new XMLHttpRequest();
+    var f = new FormData();
+
+    r.open("POST", "opened_apoinmnt.php", true);
+    r.send(f);
 
 }
 
@@ -498,4 +516,39 @@ function patient_dtails_update() {
     r.open("POST", "pdtails_update_process.php", true);
     r.send(f);
 
+}
+
+function back_to_appointments() {
+    var r = new XMLHttpRequest();
+    r.onreadystatechange = function() {
+        if (r.readyState == 4) {
+            var text = r.responseText
+            document.getElementById("dappoimnts").innerHTML = text;
+        }
+    }
+
+    var f = new FormData();
+
+    r.open("POST", "backtoappoinmnts.php", true);
+    r.send(f);
+
+}
+
+function add_prescription() {
+    var r = new XMLHttpRequest();
+    r.onreadystatechange = function() {
+        if (r.readyState == 4) {
+            var text = r.responseText
+            document.getElementById("prescription").innerHTML = text;
+        }
+    }
+
+    var f = new FormData();
+
+    r.open("POST", "add_prescription.php", true);
+    r.send(f);
+}
+
+function saveprescrip() {
+    alert("ok");
 }
