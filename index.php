@@ -81,7 +81,7 @@
                                     <div class="col-12 d-grid my-4">
                                         <div class="row">
                                             <div class="col-12 d-grid g-2">
-                                                <button class="btn btn-warning fs-4" onclick="Mlogin();">Log In</button>
+                                                <button class="btn btn-outline-warning fw-bold text-dark fs-4" onclick="Mlogin();">Log In</button>
                                             </div>
                                         </div>
                                     </div>

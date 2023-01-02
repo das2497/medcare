@@ -51,7 +51,6 @@ if (isset($_SESSION["AD"])) {
 
                             <nav class="navbar navbar-expand-lg navbar-light menu1 float-lg-end">
                                 <div class="container-fluid ">
-                                    <!-- <a class="navbar-brand d-block d-lg-none text-white" href="#">Menu</a> -->
                                     <button class="navbar-toggler text-white " type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                                         <span class="navbar-toggler-icon "></span>
                                     </button>

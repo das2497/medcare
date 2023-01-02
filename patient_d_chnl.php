@@ -1,10 +1,20 @@
 <?php
 
 require 'connection.php';
+?>
 
+<div class="col-12 col-lg-2 offset-lg-2 input-group w-50">
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <span class="input-group-text" id="basic-addon1">Search</span>
+        </div>
+        <input type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon1">
+    </div>
+</div>
+<?php
 $rsub2 = Database::search("SELECT * FROM specialies;");
 ?>
-<div class="col-6 offset-3 ">
+<div class="col-12 col-lg-3  ">
     <select class="form-select" id="dchnlspecility" onchange="d_ch_slct();">
         <option value="x">Select Speciality</option>
         <?php
