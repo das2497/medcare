@@ -134,7 +134,7 @@ function THprofile() {
 function THstudents() {
     document.getElementById("THdash").style.display = "none";
     document.getElementById("THprofile").style.display = "none";
-    document.getElementById("THlessons").style.display = "none";
+    document.getElementById("THlessons").style.display = "block";
     document.getElementById("THassignments").style.display = "none";
 }
 

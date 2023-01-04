@@ -50,6 +50,22 @@
 
                             <!-- Login -->
 
+
+                            <?php
+
+                            $username = "";
+                            $password = "";
+
+                            if (isset($_COOKIE["mun"])) {
+                                $username = $_COOKIE["mun"];
+                            }
+
+                            if (isset($_COOKIE["mpswd"])) {
+                                $password = $_COOKIE["mpswd"];
+                            }
+
+                            ?>
+
                             <div class="col-12 " style="display: block;" id="login">
                                 <div class="row">
                                     <h1 class="text-center">LOGIN</h1>
@@ -57,13 +73,13 @@
                                     <div class="col-12 g-2">
                                         <label class="form-label"><span class="text-danger">*</span>User Name</label>
                                         <small id="MunmSM" style="display: none;" class="text-danger fw-bold"></small>
-                                        <input type="text" class="form-control" id="Munm" value="" placeholder="Please Enter Your Username">
+                                        <input type="text" class="form-control" id="Munm" value="<?= $username ?>" placeholder="Please Enter Your Username">
                                     </div>
                                     <div class="col-12 g-2">
                                         <label class="form-label"><span class="text-danger">*</span>Password</label>
                                         <small id="MpswdSM" style="display: none;" class="text-danger fw-bold"></small>
                                         <div class="input-group mb-3">
-                                            <input type="password" class="form-control" id="Mpswd" placeholder="Please Enter Your Password">
+                                            <input type="password" class="form-control" id="Mpswd" placeholder="Please Enter Your Password" value="<?= $password ?>">
                                             <span onclick="chng_pswrd_type();" class="input-group-text" style="cursor: pointer;" id="pswrdicon"><i class="bi bi-eye"></i></span>
                                         </div>
                                     </div>
