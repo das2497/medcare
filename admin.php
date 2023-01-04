@@ -155,6 +155,8 @@ if (isset($_SESSION["AD"])) {
                                                                 <th class="text-center">Username</th>
                                                                 <th class="text-center">Name</th>
                                                                 <th class="text-center">Speciality</th>
+                                                                <th class="text-center">Update</th>
+                                                                <th class="text-center">Delete</th>
                                                             </tr>
                                                         </thead>
                                                         <tbody class="alert-info table-hover">
@@ -167,9 +169,11 @@ if (isset($_SESSION["AD"])) {
                                                                 $rddoc = $rsdoc->fetch_assoc();
                                                             ?>
                                                                 <tr>
-                                                                    <td class="text-center"><?= $rddoc["uname"]; ?></td>
-                                                                    <td class="text-center"><?= $rddoc["name"]; ?></td>
-                                                                    <td class="text-center"><?= $rddoc["speciality"]; ?></td>
+                                                                    <td class="text-center p-1"><input class="form-control" type="text" value="<?= $rddoc["uname"]; ?>"></td>
+                                                                    <td class="text-center p-1"><input class="form-control" type="text" value="<?= $rddoc["name"]; ?>"></td>
+                                                                    <td class="text-center p-1"><input class="form-control" type="text" value="<?= $rddoc["speciality"]; ?>"></td>
+                                                                    <td class="text-center p-1"><button class="btn btn-outline-primary w-100 fw-bold ">Update</button></td>
+                                                                    <td class="text-center p-1"><button class="btn btn-outline-danger w-100 fw-bold ">Delete</button></td>
                                                                 </tr>
                                                             <?php
                                                             }
@@ -203,6 +207,8 @@ if (isset($_SESSION["AD"])) {
                                                                 <th class="text-center">NIC</th>
                                                                 <th class="text-center">Contact</th>
                                                                 <th class="text-center">Gender</th>
+                                                                <th class="text-center">Update</th>
+                                                                <th class="text-center">Delete</th>
                                                             </tr>
                                                         </thead>
                                                         <tbody class="alert-info table-hover">
@@ -215,11 +221,13 @@ if (isset($_SESSION["AD"])) {
                                                                 $rdrecp = $rsrecp->fetch_assoc();
                                                             ?>
                                                                 <tr>
-                                                                    <td class="text-center"><?= $rdrecp["uname"]; ?></td>
-                                                                    <td class="text-center"><?= $rdrecp["name"]; ?></td>
-                                                                    <td class="text-center"><?= $rdrecp["nic"]; ?></td>
-                                                                    <td class="text-center"><?= $rdrecp["contact"]; ?></td>
-                                                                    <td class="text-center"><?= $rdrecp["gender_type"]; ?></td>
+                                                                    <td class="text-center p-1"><input class="form-control" type="text" value="<?= $rdrecp["uname"]; ?>"></td>
+                                                                    <td class="text-center p-1"><input class="form-control" type="text" value="<?= $rdrecp["name"]; ?>"></td>
+                                                                    <td class="text-center p-1"><input class="form-control" type="text" value="<?= $rdrecp["nic"]; ?>"></td>
+                                                                    <td class="text-center p-1"><input class="form-control" type="text" value="<?= $rdrecp["contact"]; ?>"></td>
+                                                                    <td class="text-center p-1"><input class="form-control" type="text" value="<?= $rdrecp["gender_type"]; ?>"></td>
+                                                                    <td class="text-center p-1"><button class="btn btn-outline-primary w-100 fw-bold ">Update</button></td>
+                                                                    <td class="text-center p-1"><button class="btn btn-outline-danger w-100 fw-bold ">Delete</button></td>
                                                                 </tr>
                                                             <?php
                                                             }
@@ -253,6 +261,8 @@ if (isset($_SESSION["AD"])) {
                                                                 <th class="text-center">NIC</th>
                                                                 <th class="text-center">Contact</th>
                                                                 <th class="text-center">Gender</th>
+                                                                <th class="text-center">Update</th>
+                                                                <th class="text-center">Delete</th>
                                                             </tr>
                                                         </thead>
                                                         <tbody class="alert-info table-hover">
@@ -265,11 +275,13 @@ if (isset($_SESSION["AD"])) {
                                                                 $rdrecp = $rsrecp->fetch_assoc();
                                                             ?>
                                                                 <tr>
-                                                                    <td class="text-center"><?= $rdrecp["uname"]; ?></td>
-                                                                    <td class="text-center"><?= $rdrecp["name"]; ?></td>
-                                                                    <td class="text-center"><?= $rdrecp["nic"]; ?></td>
-                                                                    <td class="text-center"><?= $rdrecp["contact"]; ?></td>
-                                                                    <td class="text-center"><?= $rdrecp["gender_type"]; ?></td>
+                                                                    <td class="text-center p-1"><input class="form-control" type="text" value="<?= $rdrecp["uname"]; ?>"></td>
+                                                                    <td class="text-center p-1"><input class="form-control" type="text" value="<?= $rdrecp["name"]; ?>"></td>
+                                                                    <td class="text-center p-1"><input class="form-control" type="text" value="<?= $rdrecp["nic"]; ?>"></td>
+                                                                    <td class="text-center p-1"><input class="form-control" type="text" value="<?= $rdrecp["contact"]; ?>"></td>
+                                                                    <td class="text-center p-1"><input class="form-control" type="text" value="<?= $rdrecp["gender_type"]; ?>"></td>
+                                                                    <td class="text-center p-1"><button class="btn btn-outline-primary w-100 fw-bold ">Update</button></td>
+                                                                    <td class="text-center p-1"><button class="btn btn-outline-danger w-100 fw-bold ">Delete</button></td>
                                                                 </tr>
                                                             <?php
                                                             }
@@ -303,6 +315,8 @@ if (isset($_SESSION["AD"])) {
                                                                 <th class="text-center">NIC</th>
                                                                 <th class="text-center">Contact</th>
                                                                 <th class="text-center">Gender</th>
+                                                                <th class="text-center">Update</th>
+                                                                <th class="text-center">Delete</th>
                                                             </tr>
                                                         </thead>
                                                         <tbody class="alert-info table-hover">
@@ -315,11 +329,13 @@ if (isset($_SESSION["AD"])) {
                                                                 $rdrecp = $rsrecp->fetch_assoc();
                                                             ?>
                                                                 <tr>
-                                                                    <td class="text-center"><?= $rdrecp["uname"]; ?></td>
-                                                                    <td class="text-center"><?= $rdrecp["name"]; ?></td>
-                                                                    <td class="text-center"><?= $rdrecp["nic"]; ?></td>
-                                                                    <td class="text-center"><?= $rdrecp["contact"]; ?></td>
-                                                                    <td class="text-center"><?= $rdrecp["gender_type"]; ?></td>
+                                                                    <td class="text-center p-1"><input class="form-control" type="text" value="<?= $rdrecp["uname"]; ?>"></td>
+                                                                    <td class="text-center p-1"><input class="form-control" type="text" value="<?= $rdrecp["name"]; ?>"></td>
+                                                                    <td class="text-center p-1"><input class="form-control" type="text" value="<?= $rdrecp["nic"]; ?>"></td>
+                                                                    <td class="text-center p-1"><input class="form-control" type="text" value="<?= $rdrecp["contact"]; ?>"></td>
+                                                                    <td class="text-center p-1"><input class="form-control" type="text" value="<?= $rdrecp["gender_type"]; ?>"></td>
+                                                                    <td class="text-center p-1"><button class="btn btn-outline-primary w-100 fw-bold ">Update</button></td>
+                                                                    <td class="text-center p-1"><button class="btn btn-outline-danger w-100 fw-bold ">Delete</button></td>
                                                                 </tr>
                                                             <?php
                                                             }
