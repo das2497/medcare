@@ -146,7 +146,7 @@ if (isset($_SESSION["AD"])) {
                                                     <h4 class="text-center text-uppercase fw-bold ">Doctor</h4>
                                                 </div>
                                                 <div class="col-10 offset-1 col-lg-2 offset-lg-10 d-grid">
-                                                    <a href="adminadd_doc.php" target="_blank" class="btn btn-outline-primary fw-bold">Add Doctor</a>
+                                                    <button class="btn btn-outline-primary fw-bold" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Add Doctor</button>
                                                 </div>
                                                 <div class="col-12 mt-4">
                                                     <table class="w-100 table-responsive table-striped">
@@ -161,19 +161,38 @@ if (isset($_SESSION["AD"])) {
                                                         </thead>
                                                         <tbody class="alert-info table-hover">
                                                             <?php
-                                                            $rsdoc = Database::search("SELECT *
-                                                                             FROM doctor
-                                                                             INNER JOIN specialies ON doctor.specialty=specialies.id;");
+                                                            $rsdoc = Database::search("SELECT doctor.id, doctor.uname, doctor.name, doctor.specialty, doctor.password, specialies.speciality
+                                                            FROM doctor
+                                                            INNER JOIN specialies ON doctor.specialty=specialies.id ORDER BY doctor.id ASC;");
 
                                                             for ($i = 0; $i < $rsdoc->num_rows; $i++) {
                                                                 $rddoc = $rsdoc->fetch_assoc();
                                                             ?>
-                                                                <tr>
-                                                                    <td class="text-center p-1"><input class="form-control" type="text" value="<?= $rddoc["uname"]; ?>"></td>
-                                                                    <td class="text-center p-1"><input class="form-control" type="text" value="<?= $rddoc["name"]; ?>"></td>
-                                                                    <td class="text-center p-1"><input class="form-control" type="text" value="<?= $rddoc["speciality"]; ?>"></td>
-                                                                    <td class="text-center p-1"><button class="btn btn-outline-primary w-100 fw-bold ">Update</button></td>
-                                                                    <td class="text-center p-1"><button class="btn btn-outline-danger w-100 fw-bold ">Delete</button></td>
+                                                                <tr class="border">
+                                                                    <td class="text-center p-1"><input class="form-control" type="text" value="<?= $rddoc["uname"]; ?>" id="<?= $rddoc['id']; ?>1"></td>
+                                                                    <td class="text-center p-1"><input class="form-control" type="text" value="<?= $rddoc["name"]; ?>" id="<?= $rddoc['id']; ?>2"></td>
+                                                                    <td class="text-center p-1">
+                                                                        <select class="form-control" id="<?= $rddoc['id']; ?>3">
+                                                                            <option value="0">Select Speciality</option>
+                                                                            <?php
+                                                                            $rsdocslct = Database::search("SELECT * FROM specialies;");
+                                                                            for ($j = 0; $j < $rsdocslct->num_rows; $j++) {
+                                                                                $docslctd = $rsdocslct->fetch_assoc();
+                                                                                if ($docslctd["id"] == $rddoc["specialty"]) {
+                                                                            ?>
+                                                                                    <option value="<?= $docslctd["id"]; ?>" selected><?= $docslctd["speciality"]; ?></option>
+                                                                                <?php
+                                                                                } else {
+                                                                                ?>
+                                                                                    <option value="<?= $docslctd["id"]; ?>"><?= $docslctd["speciality"]; ?></option>
+                                                                            <?php
+                                                                                }
+                                                                            }
+                                                                            ?>
+                                                                        </select>
+                                                                    </td>
+                                                                    <td class="text-center p-1"><button class="btn btn-outline-primary w-100 fw-bold " onclick="admin_update_doc('<?= $rddoc['id']; ?>');">Update</button></td>
+                                                                    <td class="text-center p-1"><button class="btn btn-outline-danger w-100 fw-bold " onclick="admin_delete_doc('<?= $rddoc['id']; ?>','<?= $rddoc['uname']; ?>','<?= $rddoc['name']; ?>');">Delete</button></td>
                                                                 </tr>
                                                             <?php
                                                             }
@@ -225,8 +244,27 @@ if (isset($_SESSION["AD"])) {
                                                                     <td class="text-center p-1"><input class="form-control" type="text" value="<?= $rdrecp["name"]; ?>"></td>
                                                                     <td class="text-center p-1"><input class="form-control" type="text" value="<?= $rdrecp["nic"]; ?>"></td>
                                                                     <td class="text-center p-1"><input class="form-control" type="text" value="<?= $rdrecp["contact"]; ?>"></td>
-                                                                    <td class="text-center p-1"><input class="form-control" type="text" value="<?= $rdrecp["gender_type"]; ?>"></td>
-                                                                    <td class="text-center p-1"><button class="btn btn-outline-primary w-100 fw-bold ">Update</button></td>
+                                                                    <td class="text-center p-1">
+                                                                        <select class="form-control" id="<?= $rdrecp["res_id"] . $i; ?>">
+                                                                            <option value="0">Select Gender</option>
+                                                                            <?php
+                                                                            $rsrecp = Database::search("SELECT * FROM gender;");
+                                                                            for ($i = 0; $i < $rsrecp->num_rows; $i++) {
+                                                                                $drecp = $rsrecp->fetch_assoc();
+                                                                                if ($drecp["id"] == $rdrecp["gender"]) {
+                                                                            ?>
+                                                                                    <option value="<?= $rdrecp["id"]; ?>" selected><?= $drecp["gender_type"]; ?></option>
+                                                                                <?php
+                                                                                } else {
+                                                                                ?>
+                                                                                    <option value="<?= $rdrecp["id"]; ?>"><?= $drecp["gender_type"]; ?></option>
+                                                                            <?php
+                                                                                }
+                                                                            }
+                                                                            ?>
+                                                                        </select>
+                                                                    </td>
+                                                                    <td class="text-center p-1"><button class="btn btn-outline-primary w-100 fw-bold " onclick="admin_update_recp('<?= $rdrecp['res_id']; ?>');">Update</button></td>
                                                                     <td class="text-center p-1"><button class="btn btn-outline-danger w-100 fw-bold ">Delete</button></td>
                                                                 </tr>
                                                             <?php
@@ -259,28 +297,22 @@ if (isset($_SESSION["AD"])) {
                                                                 <th class="text-center">Username</th>
                                                                 <th class="text-center">Name</th>
                                                                 <th class="text-center">NIC</th>
-                                                                <th class="text-center">Contact</th>
-                                                                <th class="text-center">Gender</th>
                                                                 <th class="text-center">Update</th>
                                                                 <th class="text-center">Delete</th>
                                                             </tr>
                                                         </thead>
                                                         <tbody class="alert-info table-hover">
                                                             <?php
-                                                            $rsrecp = Database::search("SELECT *
-                                                            FROM receptionist
-                                                            INNER JOIN gender ON receptionist.gender=gender.id;");
+                                                            $rsnrs = Database::search("SELECT * FROM nurse;");
 
-                                                            for ($i = 0; $i < $rsrecp->num_rows; $i++) {
-                                                                $rdrecp = $rsrecp->fetch_assoc();
+                                                            for ($i = 0; $i < $rsnrs->num_rows; $i++) {
+                                                                $rdnrs = $rsnrs->fetch_assoc();
                                                             ?>
                                                                 <tr>
-                                                                    <td class="text-center p-1"><input class="form-control" type="text" value="<?= $rdrecp["uname"]; ?>"></td>
-                                                                    <td class="text-center p-1"><input class="form-control" type="text" value="<?= $rdrecp["name"]; ?>"></td>
-                                                                    <td class="text-center p-1"><input class="form-control" type="text" value="<?= $rdrecp["nic"]; ?>"></td>
-                                                                    <td class="text-center p-1"><input class="form-control" type="text" value="<?= $rdrecp["contact"]; ?>"></td>
-                                                                    <td class="text-center p-1"><input class="form-control" type="text" value="<?= $rdrecp["gender_type"]; ?>"></td>
-                                                                    <td class="text-center p-1"><button class="btn btn-outline-primary w-100 fw-bold ">Update</button></td>
+                                                                    <td class="text-center p-1"><input class="form-control" type="text" value="<?= $rdnrs["uname"]; ?>"></td>
+                                                                    <td class="text-center p-1"><input class="form-control" type="text" value="<?= $rdnrs["name"]; ?>"></td>
+                                                                    <td class="text-center p-1"><input class="form-control" type="text" value="<?= $rdnrs["nic"]; ?>"></td>
+                                                                    <td class="text-center p-1"><button class="btn btn-outline-primary w-100 fw-bold " onclick="admin_update_nrs('<?= $rdnrs['nrs_id']; ?>');">Update</button></td>
                                                                     <td class="text-center p-1"><button class="btn btn-outline-danger w-100 fw-bold ">Delete</button></td>
                                                                 </tr>
                                                             <?php
@@ -313,28 +345,22 @@ if (isset($_SESSION["AD"])) {
                                                                 <th class="text-center">Username</th>
                                                                 <th class="text-center">Name</th>
                                                                 <th class="text-center">NIC</th>
-                                                                <th class="text-center">Contact</th>
-                                                                <th class="text-center">Gender</th>
                                                                 <th class="text-center">Update</th>
                                                                 <th class="text-center">Delete</th>
                                                             </tr>
                                                         </thead>
                                                         <tbody class="alert-info table-hover">
                                                             <?php
-                                                            $rsrecp = Database::search("SELECT *
-                                                            FROM receptionist
-                                                            INNER JOIN gender ON receptionist.gender=gender.id;");
+                                                            $rsphm = Database::search("SELECT * FROM pharmcist;");
 
-                                                            for ($i = 0; $i < $rsrecp->num_rows; $i++) {
-                                                                $rdrecp = $rsrecp->fetch_assoc();
+                                                            for ($i = 0; $i < $rsphm->num_rows; $i++) {
+                                                                $rdphm = $rsphm->fetch_assoc();
                                                             ?>
                                                                 <tr>
-                                                                    <td class="text-center p-1"><input class="form-control" type="text" value="<?= $rdrecp["uname"]; ?>"></td>
-                                                                    <td class="text-center p-1"><input class="form-control" type="text" value="<?= $rdrecp["name"]; ?>"></td>
-                                                                    <td class="text-center p-1"><input class="form-control" type="text" value="<?= $rdrecp["nic"]; ?>"></td>
-                                                                    <td class="text-center p-1"><input class="form-control" type="text" value="<?= $rdrecp["contact"]; ?>"></td>
-                                                                    <td class="text-center p-1"><input class="form-control" type="text" value="<?= $rdrecp["gender_type"]; ?>"></td>
-                                                                    <td class="text-center p-1"><button class="btn btn-outline-primary w-100 fw-bold ">Update</button></td>
+                                                                    <td class="text-center p-1"><input class="form-control" type="text" value="<?= $rdphm["uname"]; ?>"></td>
+                                                                    <td class="text-center p-1"><input class="form-control" type="text" value="<?= $rdphm["name"]; ?>"></td>
+                                                                    <td class="text-center p-1"><input class="form-control" type="text" value="<?= $rdphm["nic"]; ?>"></td>
+                                                                    <td class="text-center p-1"><button class="btn btn-outline-primary w-100 fw-bold " onclick="admin_update_phm('<?= $rdphm['ph_id']; ?>');">Update</button></td>
                                                                     <td class="text-center p-1"><button class="btn btn-outline-danger w-100 fw-bold ">Delete</button></td>
                                                                 </tr>
                                                             <?php
@@ -373,6 +399,121 @@ if (isset($_SESSION["AD"])) {
         </div>
         </div>
 
+        <!-- add doctor -->
+        <div class="modal fade " id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog ">
+                <div class="modal-content " style="background-color: #24243e;">
+                    <h4 class="text-success fw-bold text-center mt-1" style="display: none;" id="adminaddsuccesssmall">Successfull</h4>
+                    <div class="modal-header">
+                        <h1 class="modal-title text-white text-uppercase fs-5" id="staticBackdropLabel">Add Doctor</h1>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-12 ">
+                                <label class="form-label text-white"><span class="text-danger">*</span>Username</label><br>
+                                <small id="adminaddunamesmall" style="display: none;" class="small">Please Doctor Username</small>
+                                <input type="text" class="form-control" placeholder="Type Doctor Username" id="adminadduname">
+                            </div>
+                            <div class="col-12 ">
+                                <label class="form-label text-white"><span class="text-danger">*</span>Name</label><br>
+                                <small id="adminaddnamesmall" style="display: none;" class="small">Please Doctor Name</small>
+                                <input type="text" class="form-control" placeholder="Type Doctor Name" id="adminaddname">
+                            </div>
+                            <div class="col-12 ">
+                                <label class="form-label text-white"><span class="text-danger">*</span>Specialie</label><br>
+                                <small id="adminaddspesltsmall" style="display: none;" class="small">Please Doctor Specialie</small>
+                                <select class="form-control" id="adminaddspeslt">
+                                    <option value="0">Select Speciality</option>
+                                    <?php
+                                    $rsdocslctadd = Database::search("SELECT * FROM specialies;");
+                                    for ($i = 0; $i < $rsdocslctadd->num_rows; $i++) {
+                                        $docslctdadd = $rsdocslctadd->fetch_assoc();
+                                    ?>
+                                        <option value="<?= $docslctdadd["id"]; ?>"><?= $docslctdadd["speciality"]; ?></option>
+                                    <?php
+                                    }
+                                    ?>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-12 ">
+                            <label class="form-label text-white"><span class="text-danger">*</span>Password</label><br>
+                            <small id="adminaddpasssmall" style="display: none;" class="small">Please Doctor Password</small>
+                            <input type="text" class="form-control" placeholder="Type Doctor Password" id="adminaddpass">
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <div class="row w-100">
+                            <div class="col-6 d-grid">
+                                <button type="button" class="btn btn-outline-danger text-white" data-bs-dismiss="modal" onclick="adminadddocclose();">Close</button>
+                            </div>
+                            <div class="col-6 d-grid">
+                                <button type="button" class="btn btn-outline-primary text-white" onclick="adminadddoc();">Add</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- add doctor -->
+
+           <!-- add receptionist -->
+           <div class="modal fade " id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog ">
+                <div class="modal-content " style="background-color: #24243e;">
+                    <h4 class="text-success fw-bold text-center mt-1" style="display: none;" id="adminaddsuccesssmall">Successfull</h4>
+                    <div class="modal-header">
+                        <h1 class="modal-title text-white text-uppercase fs-5" id="staticBackdropLabel">Add Doctor</h1>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-12 ">
+                                <label class="form-label text-white"><span class="text-danger">*</span>Username</label><br>
+                                <small id="adminaddunamesmall" style="display: none;" class="small">Please Doctor Username</small>
+                                <input type="text" class="form-control" placeholder="Type Doctor Username" id="adminadduname">
+                            </div>
+                            <div class="col-12 ">
+                                <label class="form-label text-white"><span class="text-danger">*</span>Name</label><br>
+                                <small id="adminaddnamesmall" style="display: none;" class="small">Please Doctor Name</small>
+                                <input type="text" class="form-control" placeholder="Type Doctor Name" id="adminaddname">
+                            </div>
+                            <div class="col-12 ">
+                                <label class="form-label text-white"><span class="text-danger">*</span>Specialie</label><br>
+                                <small id="adminaddspesltsmall" style="display: none;" class="small">Please Doctor Specialie</small>
+                                <select class="form-control" id="adminaddspeslt">
+                                    <option value="0">Select Speciality</option>
+                                    <?php
+                                    $rsdocslctadd = Database::search("SELECT * FROM specialies;");
+                                    for ($i = 0; $i < $rsdocslctadd->num_rows; $i++) {
+                                        $docslctdadd = $rsdocslctadd->fetch_assoc();
+                                    ?>
+                                        <option value="<?= $docslctdadd["id"]; ?>"><?= $docslctdadd["speciality"]; ?></option>
+                                    <?php
+                                    }
+                                    ?>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-12 ">
+                            <label class="form-label text-white"><span class="text-danger">*</span>Password</label><br>
+                            <small id="adminaddpasssmall" style="display: none;" class="small">Please Doctor Password</small>
+                            <input type="text" class="form-control" placeholder="Type Doctor Password" id="adminaddpass">
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <div class="row w-100">
+                            <div class="col-6 d-grid">
+                                <button type="button" class="btn btn-outline-danger text-white" data-bs-dismiss="modal" onclick="adminadddocclose();">Close</button>
+                            </div>
+                            <div class="col-6 d-grid">
+                                <button type="button" class="btn btn-outline-primary text-white" onclick="adminadddoc();">Add</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- add receptionist -->
 
         <script src="script.js"></script>
         <script src="bootstrap.js"></script>

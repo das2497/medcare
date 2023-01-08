@@ -636,3 +636,170 @@ function srchprescrippharmc() {
     r.open("POST", "srchprescrippharmcprocess.php", true);
     r.send(f);
 }
+
+function admin_update_doc(docid) {
+    // alert(docid);
+    var uname = document.getElementById(docid + 1).value;
+    var name = document.getElementById(docid + 2).value;
+    var specilt = document.getElementById(docid + 3).value;
+
+    var r = new XMLHttpRequest();
+    r.onreadystatechange = function() {
+        if (r.readyState == 4) {
+            var t = r.responseText;
+            alert(t);
+
+        }
+    }
+    var f = new FormData();
+    f.append("id", docid);
+    f.append("uname", uname);
+    f.append("name", name);
+    f.append("specilt", specilt);
+    r.open("POST", "adminupdatedoc.php", true);
+    r.send(f);
+}
+
+function admin_update_recp(recpid) {
+    alert(recpid);
+}
+
+function admin_update_nrs(nrsid) {
+    alert(nrsid);
+}
+
+function admin_update_phm(phmid) {
+    alert(phmid);
+}
+
+function adminadddoc() {
+    // alert("okkkk");
+    var adminadduname = document.getElementById("adminadduname").value;
+    var adminaddname = document.getElementById("adminaddname").value;
+    var adminaddspeslt = document.getElementById("adminaddspeslt").value;
+    var adminaddpass = document.getElementById("adminaddpass").value;
+
+    var adminaddunamesmall = document.getElementById("adminaddunamesmall");
+    var adminaddnamesmall = document.getElementById("adminaddnamesmall");
+    var adminaddspesltsmall = document.getElementById("adminaddspesltsmall");
+    var adminaddpasssmall = document.getElementById("adminaddpasssmall");
+
+    var adminaddsuccesssmall = document.getElementById("adminaddsuccesssmall");
+
+    var r = new XMLHttpRequest();
+    r.onreadystatechange = function() {
+        if (r.readyState == 4) {
+            var t = r.responseText;
+            // alert(t);
+
+            if (t == "1") {
+                adminaddsuccesssmall.style.display = "none";
+                adminaddunamesmall.innerHTML = "Please Enter Username";
+                adminaddunamesmall.style.display = "block";
+                adminaddnamesmall.style.display = "none";
+                adminaddspesltsmall.style.display = "none";
+                adminaddpasssmall.style.display = "none";
+            } else if (t == "2") {
+                adminaddsuccesssmall.style.display = "none";
+                adminaddunamesmall.style.display = "none";
+                adminaddnamesmall.innerHTML = "Please Enter Name";
+                adminaddnamesmall.style.display = "block";
+                adminaddspesltsmall.style.display = "none";
+                adminaddpasssmall.style.display = "none";
+            } else if (t == "3") {
+                adminaddsuccesssmall.style.display = "none";
+                adminaddunamesmall.style.display = "none";
+                adminaddnamesmall.style.display = "none";
+                adminaddspesltsmall.innerHTML = "Select Specialty";
+                adminaddspesltsmall.style.display = "block";
+                adminaddpasssmall.style.display = "none";
+            } else if (t == "4") {
+                adminaddsuccesssmall.style.display = "none";
+                adminaddunamesmall.style.display = "none";
+                adminaddnamesmall.style.display = "none";
+                adminaddspesltsmall.innerHTML = "Select Specialty";
+                adminaddspesltsmall.style.display = "none";
+                adminaddpasssmall.style.display = "block";
+            } else if (t == "Success") {
+                adminaddunamesmall.style.display = "none";
+                adminaddnamesmall.style.display = "none";
+                adminaddspesltsmall.style.display = "none";
+                adminaddpasssmall.style.display = "none";
+                adminaddsuccesssmall.innerHTML = "Success";
+                adminaddsuccesssmall.style.display = "inline";
+                location.reload();
+            } else {
+                adminaddunamesmall.style.display = "none";
+                adminaddnamesmall.style.display = "none";
+                adminaddspesltsmall.style.display = "none";
+                adminaddpasssmall.style.display = "none";
+                adminaddsuccesssmall.innerHTML = t;
+                adminaddsuccesssmall.style.display = "inline";
+                location.reload();
+            }
+
+        }
+    }
+    var f = new FormData();
+    f.append("uname", adminadduname);
+    f.append("name", adminaddname);
+    f.append("speslt", adminaddspeslt);
+    f.append("pass", adminaddpass);
+    r.open("POST", "adminadddoc.php", true);
+    r.send(f);
+}
+
+function adminadddocclose() {
+    var adminadduname = document.getElementById("adminadduname").value;
+    var adminaddname = document.getElementById("adminaddname").value;
+    var adminaddspeslt = document.getElementById("adminaddspeslt").value;
+    var adminaddpass = document.getElementById("adminaddpass").value;
+
+    var adminaddunamesmall = document.getElementById("adminaddunamesmall");
+    var adminaddnamesmall = document.getElementById("adminaddnamesmall");
+    var adminaddspesltsmall = document.getElementById("adminaddspesltsmall");
+    var adminaddpasssmall = document.getElementById("adminaddpasssmall");
+
+    var adminaddsuccesssmall = document.getElementById("adminaddsuccesssmall");
+
+    adminaddunamesmall.style.display = "none";
+    adminaddnamesmall.style.display = "none";
+    adminaddspesltsmall.style.display = "none";
+    adminaddsuccesssmall.style.display = "none";
+    adminaddpasssmall.style.display = "none";
+
+    adminadduname.value = "";
+    adminaddname.value = "";
+    adminaddspeslt.value = "0";
+    adminaddpass.value = "";
+}
+
+function admin_delete_doc(id, uname, name) {
+    var des;
+    if (window.confirm("Are You Sure You Want To Delete Doctor " + name)) {
+        des = "1";
+    } else {
+        des = "2";
+    }
+
+    if (des == "1") {
+        var r = new XMLHttpRequest();
+        r.onreadystatechange = function() {
+            if (r.readyState == 4) {
+                var t = r.responseText;
+                // alert(t);
+
+                location.reload();
+
+            }
+        }
+        var f = new FormData();
+        f.append("id", id);
+        f.append("uname", uname);
+        f.append("name", name);
+        r.open("POST", "admindeletedoc.php", true);
+        r.send(f);
+    } else if (des == "2") {
+
+    }
+}
