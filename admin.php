@@ -240,12 +240,12 @@ if (isset($_SESSION["AD"])) {
                                                                 $rdrecp = $rsrecp->fetch_assoc();
                                                             ?>
                                                                 <tr>
-                                                                    <td class="text-center p-1"><input class="form-control" type="text" value="<?= $rdrecp["uname"]; ?>"></td>
-                                                                    <td class="text-center p-1"><input class="form-control" type="text" value="<?= $rdrecp["name"]; ?>"></td>
-                                                                    <td class="text-center p-1"><input class="form-control" type="text" value="<?= $rdrecp["nic"]; ?>"></td>
-                                                                    <td class="text-center p-1"><input class="form-control" type="text" value="<?= $rdrecp["contact"]; ?>"></td>
+                                                                    <td class="text-center p-1"><input class="form-control" type="text" value="<?= $rdrecp["uname"]; ?>" id="<?= $$rdrecp['res_id'] . 1; ?>"></td>
+                                                                    <td class="text-center p-1"><input class="form-control" type="text" value="<?= $rdrecp["name"]; ?>" id="<?= $$rdrecp['res_id'] . 2; ?>"></td>
+                                                                    <td class="text-center p-1"><input class="form-control" type="text" value="<?= $rdrecp["nic"]; ?>" id="<?= $$rdrecp['res_id'] . 3; ?>"></td>
+                                                                    <td class="text-center p-1"><input class="form-control" type="text" value="<?= $rdrecp["contact"]; ?>" id="<?= $$rdrecp['res_id'] . 4; ?>"></td>
                                                                     <td class="text-center p-1">
-                                                                        <select class="form-control" id="<?= $rdrecp["res_id"] . $i; ?>">
+                                                                        <select class="form-control" id="<?= $rdrecp["res_id"] . 5; ?>">
                                                                             <option value="0">Select Gender</option>
                                                                             <?php
                                                                             $rsrecp = Database::search("SELECT * FROM gender;");
@@ -457,8 +457,8 @@ if (isset($_SESSION["AD"])) {
         </div>
         <!-- add doctor -->
 
-           <!-- add receptionist -->
-           <div class="modal fade " id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <!-- add receptionist -->
+        <div class="modal fade " id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
             <div class="modal-dialog ">
                 <div class="modal-content " style="background-color: #24243e;">
                     <h4 class="text-success fw-bold text-center mt-1" style="display: none;" id="adminaddsuccesssmall">Successfull</h4>

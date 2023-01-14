@@ -661,7 +661,30 @@ function admin_update_doc(docid) {
 }
 
 function admin_update_recp(recpid) {
-    alert(recpid);
+    // alert(recpid);
+    var uname = document.getElementById(recpid + 1).value;
+    var name = document.getElementById(recpid + 2).value;
+    var nic = document.getElementById(recpid + 3).value;
+    var contact = document.getElementById(recpid + 4).value;
+    var gender = document.getElementById(recpid + 5).value;
+
+    var r = new XMLHttpRequest();
+    r.onreadystatechange = function() {
+        if (r.readyState == 4) {
+            var t = r.responseText;
+            alert(t);
+
+        }
+    }
+    var f = new FormData();
+    f.append("id", recpid);
+    f.append("uname", uname);
+    f.append("name", name);
+    f.append("nic", nic);
+    f.append("contact", contact);
+    f.append("gender", gender);
+    r.open("POST", "adminupdaterecp.php", true);
+    r.send(f);
 }
 
 function admin_update_nrs(nrsid) {
