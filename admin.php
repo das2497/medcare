@@ -215,7 +215,7 @@ if (isset($_SESSION["AD"])) {
                                                     <h4 class="text-center text-uppercase fw-bold ">Receptionist</h4>
                                                 </div>
                                                 <div class="col-10 offset-1 col-lg-2 offset-lg-10 d-grid">
-                                                    <a href="adminadd_Receptionist.php" target="_blank" class="btn btn-outline-primary fw-bold">Add Receptionist</a>
+                                                    <button class="btn btn-outline-primary fw-bold" data-bs-toggle="modal" data-bs-target="#staticBackdrop2">Add Receptionist</button>
                                                 </div>
                                                 <div class="col-12 mt-4">
                                                     <table class="w-100 table-responsive table-striped">
@@ -240,13 +240,13 @@ if (isset($_SESSION["AD"])) {
                                                                 $rdrecp = $rsrecp->fetch_assoc();
                                                             ?>
                                                                 <tr>
-                                                                    <td class="text-center p-1"><input class="form-control" type="text" value="<?= $rdrecp["uname"]; ?>" id="<?= $$rdrecp['res_id'] . 1; ?>"></td>
-                                                                    <td class="text-center p-1"><input class="form-control" type="text" value="<?= $rdrecp["name"]; ?>" id="<?= $$rdrecp['res_id'] . 2; ?>"></td>
-                                                                    <td class="text-center p-1"><input class="form-control" type="text" value="<?= $rdrecp["nic"]; ?>" id="<?= $$rdrecp['res_id'] . 3; ?>"></td>
-                                                                    <td class="text-center p-1"><input class="form-control" type="text" value="<?= $rdrecp["contact"]; ?>" id="<?= $$rdrecp['res_id'] . 4; ?>"></td>
+                                                                    <td class="text-center p-1"><input class="form-control" type="text" value="<?= $rdrecp["uname"]; ?>" id="<?= $rdrecp['res_id'] . 1; ?>"></td>
+                                                                    <td class="text-center p-1"><input class="form-control" type="text" value="<?= $rdrecp["name"]; ?>" id="<?= $rdrecp['res_id'] . 2; ?>"></td>
+                                                                    <td class="text-center p-1"><input class="form-control" type="text" value="<?= $rdrecp["nic"]; ?>" id="<?= $rdrecp['res_id'] . 3; ?>"></td>
+                                                                    <td class="text-center p-1"><input class="form-control" type="text" value="<?= $rdrecp["contact"]; ?>" id="<?= $rdrecp['res_id'] . 4; ?>"></td>
                                                                     <td class="text-center p-1">
                                                                         <select class="form-control" id="<?= $rdrecp["res_id"] . 5; ?>">
-                                                                            <option value="0">Select Gender</option>
+                                                                            <option value="x">Select Gender</option>
                                                                             <?php
                                                                             $rsrecp = Database::search("SELECT * FROM gender;");
                                                                             for ($i = 0; $i < $rsrecp->num_rows; $i++) {
@@ -288,7 +288,7 @@ if (isset($_SESSION["AD"])) {
                                                     <h4 class="text-center text-uppercase fw-bold ">Nurse</h4>
                                                 </div>
                                                 <div class="col-10 offset-1 col-lg-2 offset-lg-10 d-grid">
-                                                    <a href="adminadd_Nurse.php" target="_blank" class="btn btn-outline-primary fw-bold">Add Nurse</a>
+                                                    <button class="btn btn-outline-primary fw-bold" data-bs-toggle="modal" data-bs-target="#staticBackdrop3">Add Nurse</button>
                                                 </div>
                                                 <div class="col-12 mt-4">
                                                     <table class="w-100 table-responsive table-striped">
@@ -336,7 +336,7 @@ if (isset($_SESSION["AD"])) {
                                                     <h4 class="text-center text-uppercase fw-bold ">Pharmacist</h4>
                                                 </div>
                                                 <div class="col-10 offset-1 col-lg-2 offset-lg-10 d-grid">
-                                                    <a href="adminadd_Pharmacist.php" target="_blank" class="btn btn-outline-primary fw-bold">Add Pharmacist</a>
+                                                    <button class="btn btn-outline-primary fw-bold" data-bs-toggle="modal" data-bs-target="#staticBackdrop4">Add Pharmacist</button>
                                                 </div>
                                                 <div class="col-12 mt-4">
                                                     <table class="w-100 table-responsive table-striped">
@@ -458,7 +458,81 @@ if (isset($_SESSION["AD"])) {
         <!-- add doctor -->
 
         <!-- add receptionist -->
-        <div class="modal fade " id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal fade " id="staticBackdrop2" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog ">
+                <div class="modal-content " style="background-color: #24243e;">
+                    <h4 class="text-success fw-bold text-center mt-1" style="display: none;" id="adminaddsuccesssmall"></h4>
+                    <div class="modal-header">
+                        <h1 class="modal-title text-white text-uppercase fs-5" id="staticBackdropLabel">Add Receptionist</h1>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-12 ">
+                                <label class="form-label text-white"><span class="text-danger">*</span>Username</label><br>
+                                <small id="recipaddunamesmall" style="display: none;" class="small">Please Doctor Username</small>
+                                <input type="text" class="form-control" placeholder="Type Doctor Username" id="recipadduname">
+                            </div>
+                            <div class="col-12 ">
+                                <label class="form-label text-white"><span class="text-danger">*</span>Name</label><br>
+                                <small id="recipaddnamesmall" style="display: none;" class="small">Please Doctor Name</small>
+                                <input type="text" class="form-control" placeholder="Type Doctor Name" id="recipaddname">
+                            </div>
+                            <div class="col-12 ">
+                                <label class="form-label text-white"><span class="text-danger">*</span>NIC</label><br>
+                                <small id="recipaddNICsmall" style="display: none;" class="small">Please Doctor NIC</small>
+                                <input type="text" class="form-control" placeholder="Type Speciality" id="recipaddNIC">
+                            </div>
+                        </div>
+                        <div class="col-12 ">
+                            <label class="form-label text-white"><span class="text-danger">*</span>Contact</label><br>
+                            <small id="recipaddcontactsmall" style="display: none;" class="small">Please Enter Contact Number</small>
+                            <input type="text" class="form-control" placeholder="Type Contact Number" id="recipaddcontact">
+                        </div>
+                        <div class="col-12 ">
+                            <label class="form-label text-white"><span class="text-danger">*</span>Gender</label><br>
+                            <small id="recipaddgendrsmall" style="display: none;" class="small">Please Select Gender</small>
+                            <select class="form-control" id="recipaddgendr">
+                                <option value="x">Select Gender</option>
+                                <?php
+                                $rsrecp = Database::search("SELECT * FROM gender;");
+                                for ($i = 0; $i < $rsrecp->num_rows; $i++) {
+                                    $drecp = $rsrecp->fetch_assoc();
+                                    if ($drecp["id"] == $rdrecp["gender"]) {
+                                ?>
+                                        <option value="<?= $rdrecp["id"]; ?>" selected><?= $drecp["gender_type"]; ?></option>
+                                    <?php
+                                    } else {
+                                    ?>
+                                        <option value="<?= $rdrecp["id"]; ?>"><?= $drecp["gender_type"]; ?></option>
+                                <?php
+                                    }
+                                }
+                                ?>
+                            </select>
+                        </div>
+                        <div class="col-12 ">
+                            <label class="form-label text-white"><span class="text-danger">*</span>Password</label><br>
+                            <small id="recipaddPasswordsmall" style="display: none;" class="small">Please Enter Password</small>
+                            <input type="text" class="form-control" placeholder="Type Contact Number" id="recipaddPassword">
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <div class="row w-100">
+                            <div class="col-6 d-grid">
+                                <button type="button" class="btn btn-outline-danger text-white" data-bs-dismiss="modal" onclick="adminaddrecpclose();">Close</button>
+                            </div>
+                            <div class="col-6 d-grid">
+                                <button type="button" class="btn btn-outline-primary text-white" onclick="adminaddrecp();">Add</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- add receptionist -->
+
+        <!-- add nurse -->
+        <div class="modal fade " id="staticBackdrop3" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
             <div class="modal-dialog ">
                 <div class="modal-content " style="background-color: #24243e;">
                     <h4 class="text-success fw-bold text-center mt-1" style="display: none;" id="adminaddsuccesssmall">Successfull</h4>
@@ -478,20 +552,56 @@ if (isset($_SESSION["AD"])) {
                                 <input type="text" class="form-control" placeholder="Type Doctor Name" id="adminaddname">
                             </div>
                             <div class="col-12 ">
-                                <label class="form-label text-white"><span class="text-danger">*</span>Specialie</label><br>
-                                <small id="adminaddspesltsmall" style="display: none;" class="small">Please Doctor Specialie</small>
-                                <select class="form-control" id="adminaddspeslt">
-                                    <option value="0">Select Speciality</option>
-                                    <?php
-                                    $rsdocslctadd = Database::search("SELECT * FROM specialies;");
-                                    for ($i = 0; $i < $rsdocslctadd->num_rows; $i++) {
-                                        $docslctdadd = $rsdocslctadd->fetch_assoc();
-                                    ?>
-                                        <option value="<?= $docslctdadd["id"]; ?>"><?= $docslctdadd["speciality"]; ?></option>
-                                    <?php
-                                    }
-                                    ?>
-                                </select>
+                                <label class="form-label text-white"><span class="text-danger">*</span>NIC</label><br>
+                                <small id="adminaddspesltsmall" style="display: none;" class="small">Please Enter NIC</small>
+                                <input type="text" class="form-control" placeholder="Type NIC" id="adminaddname">
+                            </div>
+                        </div>
+                        <div class="col-12 ">
+                            <label class="form-label text-white"><span class="text-danger">*</span>Password</label><br>
+                            <small id="adminaddpasssmall" style="display: none;" class="small">Please Doctor Password</small>
+                            <input type="text" class="form-control" placeholder="Type Doctor Password" id="adminaddpass">
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <div class="row w-100">
+                            <div class="col-6 d-grid">
+                                <button type="button" class="btn btn-outline-danger text-white" data-bs-dismiss="modal" onclick="adminadddocclose();">Close</button>
+                            </div>
+                            <div class="col-6 d-grid">
+                                <button type="button" class="btn btn-outline-primary text-white" onclick="adminadddoc();">Add</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- add nurse -->
+
+        <!-- add Pharmacist -->
+        <div class="modal fade " id="staticBackdrop4" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog ">
+                <div class="modal-content " style="background-color: #24243e;">
+                    <h4 class="text-success fw-bold text-center mt-1" style="display: none;" id="adminaddsuccesssmall">Successfull</h4>
+                    <div class="modal-header">
+                        <h1 class="modal-title text-white text-uppercase fs-5" id="staticBackdropLabel">Add Doctor</h1>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-12 ">
+                                <label class="form-label text-white"><span class="text-danger">*</span>Username</label><br>
+                                <small id="adminaddunamesmall" style="display: none;" class="small">Please Doctor Username</small>
+                                <input type="text" class="form-control" placeholder="Type Doctor Username" id="adminadduname">
+                            </div>
+                            <div class="col-12 ">
+                                <label class="form-label text-white"><span class="text-danger">*</span>Name</label><br>
+                                <small id="adminaddnamesmall" style="display: none;" class="small">Please Doctor Name</small>
+                                <input type="text" class="form-control" placeholder="Type Doctor Name" id="adminaddname">
+                            </div>
+                            <div class="col-12 ">
+                                <label class="form-label text-white"><span class="text-danger">*</span>NIC</label><br>
+                                <small id="adminaddspesltsmall" style="display: none;" class="small">Please Enter NIC</small>
+                                <input type="text" class="form-control" placeholder="Type NIC" id="adminaddname">
                             </div>
                         </div>
                         <div class="col-12 ">
