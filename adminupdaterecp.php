@@ -19,6 +19,4 @@ if (empty($_POST["uname"])) {
     Database::search("UPDATE uname='" . $_POST["uname"] . "', NAME='" . $_POST["name"] . "', nic='" . $_POST["nic"] . "', contact='" . $_POST["contact"] . "' gender='" . $_POST["gender"] . "' WHERE res_id='" . $_POST["id"] . "';");
 
     echo "Successfully Updated";
-
-    // echo "UPDATE uname='" . $_POST["uname"] . "', NAME='" . $_POST["name"] . "', nic='" . $_POST["nic"] . "', contact='" . $_POST["contact"] . "' gender='" . $_POST["gender"] . "' WHERE res_id='" . $_POST["id"] . "';";
 }

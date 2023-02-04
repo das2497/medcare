@@ -232,12 +232,12 @@ if (isset($_SESSION["AD"])) {
                                                         </thead>
                                                         <tbody class="alert-info table-hover">
                                                             <?php
-                                                            $rsrecp = Database::search("SELECT *
+                                                            $rsrecp1 = Database::search("SELECT *
                                                             FROM receptionist
                                                             INNER JOIN gender ON receptionist.gender=gender.id;");
 
-                                                            for ($i = 0; $i < $rsrecp->num_rows; $i++) {
-                                                                $rdrecp = $rsrecp->fetch_assoc();
+                                                            for ($i = 0; $i < $rsrecp1->num_rows; $i++) {
+                                                                $rdrecp = $rsrecp1->fetch_assoc();
                                                             ?>
                                                                 <tr>
                                                                     <td class="text-center p-1"><input class="form-control" type="text" value="<?= $rdrecp["uname"]; ?>" id="<?= $rdrecp['res_id'] . 1; ?>"></td>
@@ -248,16 +248,16 @@ if (isset($_SESSION["AD"])) {
                                                                         <select class="form-control" id="<?= $rdrecp["res_id"] . 5; ?>">
                                                                             <option value="x">Select Gender</option>
                                                                             <?php
-                                                                            $rsrecp = Database::search("SELECT * FROM gender;");
-                                                                            for ($i = 0; $i < $rsrecp->num_rows; $i++) {
-                                                                                $drecp = $rsrecp->fetch_assoc();
-                                                                                if ($drecp["id"] == $rdrecp["gender"]) {
+                                                                            $rsrecp2 = Database::search("SELECT * FROM gender;");
+                                                                            for ($j = 0; $j < $rsrecp2->num_rows; $j++) {
+                                                                                $drecp1 = $rsrecp2->fetch_assoc();
+                                                                                if ($drecp1["id"] == $rdrecp["gender"]) {
                                                                             ?>
-                                                                                    <option value="<?= $rdrecp["id"]; ?>" selected><?= $drecp["gender_type"]; ?></option>
+                                                                                    <option value="<?= $rdrecp1["id"]; ?>" selected><?= $drecp1["gender_type"]; ?></option>
                                                                                 <?php
                                                                                 } else {
                                                                                 ?>
-                                                                                    <option value="<?= $rdrecp["id"]; ?>"><?= $drecp["gender_type"]; ?></option>
+                                                                                    <option value="<?= $rdrecp1["id"]; ?>"><?= $drecp1["gender_type"]; ?></option>
                                                                             <?php
                                                                                 }
                                                                             }
@@ -265,7 +265,7 @@ if (isset($_SESSION["AD"])) {
                                                                         </select>
                                                                     </td>
                                                                     <td class="text-center p-1"><button class="btn btn-outline-primary w-100 fw-bold " onclick="admin_update_recp('<?= $rdrecp['res_id']; ?>');">Update</button></td>
-                                                                    <td class="text-center p-1"><button class="btn btn-outline-danger w-100 fw-bold ">Delete</button></td>
+                                                                    <td class="text-center p-1"><button class="btn btn-outline-danger w-100 fw-bold " onclick="admin_delete_recip('<?= $rdrecp['uname']; ?>','<?= $rdrecp['nic']; ?>');">Delete</button></td>
                                                                 </tr>
                                                             <?php
                                                             }
@@ -309,9 +309,9 @@ if (isset($_SESSION["AD"])) {
                                                                 $rdnrs = $rsnrs->fetch_assoc();
                                                             ?>
                                                                 <tr>
-                                                                    <td class="text-center p-1"><input class="form-control" type="text" value="<?= $rdnrs["uname"]; ?>"></td>
-                                                                    <td class="text-center p-1"><input class="form-control" type="text" value="<?= $rdnrs["name"]; ?>"></td>
-                                                                    <td class="text-center p-1"><input class="form-control" type="text" value="<?= $rdnrs["nic"]; ?>"></td>
+                                                                    <td class="text-center p-1"><input class="form-control" type="text" value="<?= $rdnrs["uname"]; ?>" id="<?= $rdnrs["nrs_id"] . 1 ?>"></td>
+                                                                    <td class="text-center p-1"><input class="form-control" type="text" value="<?= $rdnrs["name"]; ?>" id="<?= $rdnrs["nrs_id"] . 2 ?>"></td>
+                                                                    <td class="text-center p-1"><input class="form-control" type="text" value="<?= $rdnrs["nic"]; ?>" id="<?= $rdnrs["nrs_id"] . 3 ?>"></td>
                                                                     <td class="text-center p-1"><button class="btn btn-outline-primary w-100 fw-bold " onclick="admin_update_nrs('<?= $rdnrs['nrs_id']; ?>');">Update</button></td>
                                                                     <td class="text-center p-1"><button class="btn btn-outline-danger w-100 fw-bold ">Delete</button></td>
                                                                 </tr>
@@ -461,7 +461,7 @@ if (isset($_SESSION["AD"])) {
         <div class="modal fade " id="staticBackdrop2" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
             <div class="modal-dialog ">
                 <div class="modal-content " style="background-color: #24243e;">
-                    <h4 class="text-success fw-bold text-center mt-1" style="display: none;" id="adminaddsuccesssmall"></h4>
+                    <h4 class="text-success fw-bold text-center mt-1" style="display: none;" id="adminaddrecipsuccesssmall"></h4>
                     <div class="modal-header">
                         <h1 class="modal-title text-white text-uppercase fs-5" id="staticBackdropLabel">Add Receptionist</h1>
                     </div>
@@ -494,12 +494,12 @@ if (isset($_SESSION["AD"])) {
                             <select class="form-control" id="recipaddgendr">
                                 <option value="x">Select Gender</option>
                                 <?php
-                                $rsrecp = Database::search("SELECT * FROM gender;");
-                                for ($i = 0; $i < $rsrecp->num_rows; $i++) {
-                                    $drecp = $rsrecp->fetch_assoc();
+                                $rsrecp3 = Database::search("SELECT * FROM gender;");
+                                for ($i = 0; $i < $rsrecp3->num_rows; $i++) {
+                                    $drecp = $rsrecp3->fetch_assoc();
                                     if ($drecp["id"] == $rdrecp["gender"]) {
                                 ?>
-                                        <option value="<?= $rdrecp["id"]; ?>" selected><?= $drecp["gender_type"]; ?></option>
+                                        <option value="<?= $rdrecp["id"]; ?>"><?= $drecp["gender_type"]; ?></option>
                                     <?php
                                     } else {
                                     ?>
@@ -535,41 +535,41 @@ if (isset($_SESSION["AD"])) {
         <div class="modal fade " id="staticBackdrop3" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
             <div class="modal-dialog ">
                 <div class="modal-content " style="background-color: #24243e;">
-                    <h4 class="text-success fw-bold text-center mt-1" style="display: none;" id="adminaddsuccesssmall">Successfull</h4>
+                    <h4 class="text-success fw-bold text-center mt-1" style="display: none;" id="adminaddnursesuccesssmall">Successfull</h4>
                     <div class="modal-header">
-                        <h1 class="modal-title text-white text-uppercase fs-5" id="staticBackdropLabel">Add Doctor</h1>
+                        <h1 class="modal-title text-white text-uppercase fs-5" id="staticBackdropLabel">Add Nurse</h1>
                     </div>
                     <div class="modal-body">
                         <div class="row">
                             <div class="col-12 ">
                                 <label class="form-label text-white"><span class="text-danger">*</span>Username</label><br>
-                                <small id="adminaddunamesmall" style="display: none;" class="small">Please Doctor Username</small>
-                                <input type="text" class="form-control" placeholder="Type Doctor Username" id="adminadduname">
+                                <small id="adminaddnurseunamesmall" style="display: none;" class="small">Please Doctor Username</small>
+                                <input type="text" class="form-control" placeholder="Type Doctor Username" id="adminaddnurseuname">
                             </div>
                             <div class="col-12 ">
                                 <label class="form-label text-white"><span class="text-danger">*</span>Name</label><br>
-                                <small id="adminaddnamesmall" style="display: none;" class="small">Please Doctor Name</small>
-                                <input type="text" class="form-control" placeholder="Type Doctor Name" id="adminaddname">
+                                <small id="adminaddnursenamesmall" style="display: none;" class="small">Please Doctor Name</small>
+                                <input type="text" class="form-control" placeholder="Type Doctor Name" id="adminaddnursename">
                             </div>
                             <div class="col-12 ">
                                 <label class="form-label text-white"><span class="text-danger">*</span>NIC</label><br>
-                                <small id="adminaddspesltsmall" style="display: none;" class="small">Please Enter NIC</small>
-                                <input type="text" class="form-control" placeholder="Type NIC" id="adminaddname">
+                                <small id="adminaddnursenicsmall" style="display: none;" class="small">Please Enter NIC</small>
+                                <input type="text" class="form-control" placeholder="Type NIC" id="adminaddnursenic">
                             </div>
                         </div>
                         <div class="col-12 ">
                             <label class="form-label text-white"><span class="text-danger">*</span>Password</label><br>
-                            <small id="adminaddpasssmall" style="display: none;" class="small">Please Doctor Password</small>
-                            <input type="text" class="form-control" placeholder="Type Doctor Password" id="adminaddpass">
+                            <small id="adminaddnursepasssmall" style="display: none;" class="small">Please Doctor Password</small>
+                            <input type="text" class="form-control" placeholder="Type Doctor Password" id="adminaddnursepass">
                         </div>
                     </div>
                     <div class="modal-footer">
                         <div class="row w-100">
                             <div class="col-6 d-grid">
-                                <button type="button" class="btn btn-outline-danger text-white" data-bs-dismiss="modal" onclick="adminadddocclose();">Close</button>
+                                <button type="button" class="btn btn-outline-danger text-white" data-bs-dismiss="modal" onclick="adminaddnurseclose();">Close</button>
                             </div>
                             <div class="col-6 d-grid">
-                                <button type="button" class="btn btn-outline-primary text-white" onclick="adminadddoc();">Add</button>
+                                <button type="button" class="btn btn-outline-primary text-white" onclick="adminaddnurse();">Add</button>
                             </div>
                         </div>
                     </div>

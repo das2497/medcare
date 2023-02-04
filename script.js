@@ -687,9 +687,6 @@ function admin_update_recp(recpid) {
     r.send(f);
 }
 
-function admin_update_nrs(nrsid) {
-    alert(nrsid);
-}
 
 function admin_update_phm(phmid) {
     alert(phmid);
@@ -758,7 +755,6 @@ function adminadddoc() {
                 adminaddpasssmall.style.display = "none";
                 adminaddsuccesssmall.innerHTML = t;
                 adminaddsuccesssmall.style.display = "inline";
-                location.reload();
             }
 
         }
@@ -830,75 +826,104 @@ function admin_delete_doc(id, uname, name) {
 //=========================================================================================================================================
 
 function adminaddrecp() {
-    alert("okkkk");
+    // alert("okkkk");
 
     var recipadduname = document.getElementById("recipadduname").value;
     var recipaddname = document.getElementById("recipaddname").value;
-    var recipaddspeslt = document.getElementById("recipaddspeslt").value;
+    var recipaddNIC = document.getElementById("recipaddNIC").value;
     var recipaddcontact = document.getElementById("recipaddcontact").value;
     var recipaddgendr = document.getElementById("recipaddgendr").value;
     var recipaddPassword = document.getElementById("recipaddPassword").value;
 
     var recipaddunamesmall = document.getElementById("recipaddunamesmall");
     var recipaddnamesmall = document.getElementById("recipaddnamesmall");
-    var recipaddspesltsmall = document.getElementById("recipaddspesltsmall");
+    var recipaddNICsmall = document.getElementById("recipaddNICsmall");
     var recipaddcontactsmall = document.getElementById("recipaddcontactsmall");
     var recipaddgendrsmall = document.getElementById("recipaddgendrsmall");
     var recipaddPasswordsmall = document.getElementById("recipaddPasswordsmall");
 
-    var adminaddsuccesssmall = document.getElementById("adminaddsuccesssmall");
+    var adminaddrecipsuccesssmall = document.getElementById("adminaddrecipsuccesssmall");
 
     var r = new XMLHttpRequest();
     r.onreadystatechange = function() {
         if (r.readyState == 4) {
             var t = r.responseText;
-            alert(t);
+            // alert(t);
 
-            // if (t == "1") {
-            //     adminaddsuccesssmall.style.display = "none";
-            //     adminaddunamesmall.innerHTML = "Please Enter Username";
-            //     adminaddunamesmall.style.display = "block";
-            //     adminaddnamesmall.style.display = "none";
-            //     adminaddspesltsmall.style.display = "none";
-            //     adminaddpasssmall.style.display = "none";
-            // } else if (t == "2") {
-            //     adminaddsuccesssmall.style.display = "none";
-            //     adminaddunamesmall.style.display = "none";
-            //     adminaddnamesmall.innerHTML = "Please Enter Name";
-            //     adminaddnamesmall.style.display = "block";
-            //     adminaddspesltsmall.style.display = "none";
-            //     adminaddpasssmall.style.display = "none";
-            // } else if (t == "3") {
-            //     adminaddsuccesssmall.style.display = "none";
-            //     adminaddunamesmall.style.display = "none";
-            //     adminaddnamesmall.style.display = "none";
-            //     adminaddspesltsmall.innerHTML = "Select Specialty";
-            //     adminaddspesltsmall.style.display = "block";
-            //     adminaddpasssmall.style.display = "none";
-            // } else if (t == "4") {
-            //     adminaddsuccesssmall.style.display = "none";
-            //     adminaddunamesmall.style.display = "none";
-            //     adminaddnamesmall.style.display = "none";
-            //     adminaddspesltsmall.innerHTML = "Select Specialty";
-            //     adminaddspesltsmall.style.display = "none";
-            //     adminaddpasssmall.style.display = "block";
-            // } else if (t == "Success") {
-            //     adminaddunamesmall.style.display = "none";
-            //     adminaddnamesmall.style.display = "none";
-            //     adminaddspesltsmall.style.display = "none";
-            //     adminaddpasssmall.style.display = "none";
-            //     adminaddsuccesssmall.innerHTML = "Success";
-            //     adminaddsuccesssmall.style.display = "inline";
-            //     location.reload();
-            // } else {
-            //     adminaddunamesmall.style.display = "none";
-            //     adminaddnamesmall.style.display = "none";
-            //     adminaddspesltsmall.style.display = "none";
-            //     adminaddpasssmall.style.display = "none";
-            //     adminaddsuccesssmall.innerHTML = t;
-            //     adminaddsuccesssmall.style.display = "inline";
-            //     location.reload();
-            // }
+            if (t == "Please enter username") {
+                adminaddrecipsuccesssmall.style.display = "none";
+                recipaddunamesmall.style.display = "block";
+                recipaddunamesmall.innerHTML = t;
+                recipaddnamesmall.style.display = "none";
+                recipaddNICsmall.style.display = "none";
+                recipaddcontactsmall.style.display = "none";
+                recipaddgendrsmall.style.display = "none";
+                recipaddPasswordsmall.style.display = "none";
+            } else if (t == "Please enter name") {
+                adminaddrecipsuccesssmall.style.display = "none";
+                recipaddunamesmall.style.display = "none";
+                recipaddnamesmall.style.display = "block";
+                recipaddnamesmall.innerHTML = t;
+                recipaddNICsmall.style.display = "none";
+                recipaddcontactsmall.style.display = "none";
+                recipaddgendrsmall.style.display = "none";
+                recipaddPasswordsmall.style.display = "none";
+            } else if (t == "Please enter NIC") {
+                adminaddrecipsuccesssmall.style.display = "none";
+                recipaddunamesmall.style.display = "none";
+                recipaddnamesmall.style.display = "none";
+                recipaddNICsmall.style.display = "block";
+                recipaddNICsmall.innerHTML = t;
+                recipaddcontactsmall.style.display = "none";
+                recipaddgendrsmall.style.display = "none";
+                recipaddPasswordsmall.style.display = "none";
+            } else if (t == "Please enter contact no") {
+                adminaddrecipsuccesssmall.style.display = "none";
+                recipaddunamesmall.style.display = "none";
+                recipaddnamesmall.style.display = "none";
+                recipaddNICsmall.style.display = "none";
+                recipaddcontactsmall.style.display = "block";
+                recipaddcontactsmall.innerHTML = t;
+                recipaddgendrsmall.style.display = "none";
+                recipaddPasswordsmall.style.display = "none";
+            } else if (t == "Please select gender") {
+                adminaddrecipsuccesssmall.style.display = "none";
+                recipaddunamesmall.style.display = "none";
+                recipaddnamesmall.style.display = "none";
+                recipaddNICsmall.style.display = "none";
+                recipaddcontactsmall.style.display = "none";
+                recipaddgendrsmall.style.display = "block";
+                recipaddgendrsmall.innerHTML = t
+                recipaddPasswordsmall.style.display = "none";
+            } else if (t == "Please enter password") {
+                adminaddrecipsuccesssmall.style.display = "none";
+                recipaddunamesmall.style.display = "none";
+                recipaddnamesmall.style.display = "none";
+                recipaddNICsmall.style.display = "none";
+                recipaddcontactsmall.style.display = "none";
+                recipaddgendrsmall.style.display = "none";
+                recipaddPasswordsmall.style.display = "block";
+                recipaddPasswordsmall.innerHTML = t;
+            } else if (t == "Successfully Added") {
+                recipaddunamesmall.style.display = "none";
+                recipaddnamesmall.style.display = "none";
+                recipaddNICsmall.style.display = "none";
+                recipaddcontactsmall.style.display = "none";
+                recipaddgendrsmall.style.display = "none";
+                recipaddPasswordsmall.style.display = "none";
+                adminaddrecipsuccesssmall.style.display = "block";
+                adminaddrecipsuccesssmall.innerHTML = t;
+                location.reload();
+            } else {
+                recipaddunamesmall.style.display = "none";
+                recipaddnamesmall.style.display = "none";
+                recipaddNICsmall.style.display = "none";
+                recipaddcontactsmall.style.display = "none";
+                recipaddgendrsmall.style.display = "none";
+                recipaddPasswordsmall.style.display = "none";
+                adminaddrecipsuccesssmall.style.display = "block";
+                adminaddrecipsuccesssmall.innerHTML = t;
+            }
 
         }
     }
@@ -906,7 +931,7 @@ function adminaddrecp() {
     var f = new FormData();
     f.append("uname", recipadduname);
     f.append("name", recipaddname);
-    f.append("speslt", recipaddspeslt);
+    f.append("nic", recipaddNIC);
     f.append("contact", recipaddcontact);
     f.append("gndr", recipaddgendr);
     f.append("pass", recipaddPassword);
@@ -915,27 +940,168 @@ function adminaddrecp() {
 }
 
 function adminaddrecpclose() {
-    alert("close");
-    var adminadduname = document.getElementById("adminadduname").value;
-    var adminaddname = document.getElementById("adminaddname").value;
-    var adminaddspeslt = document.getElementById("adminaddspeslt").value;
-    var adminaddpass = document.getElementById("adminaddpass").value;
+    // alert("close");
+    document.getElementById("recipadduname").value = "";
+    document.getElementById("recipaddname").value = "";
+    document.getElementById("recipaddNIC").value = "";
+    document.getElementById("recipaddcontact").value = "";
+    document.getElementById("recipaddgendr").value = "x";
+    document.getElementById("recipaddPassword").value = "";
 
-    var adminaddunamesmall = document.getElementById("adminaddunamesmall");
-    var adminaddnamesmall = document.getElementById("adminaddnamesmall");
-    var adminaddspesltsmall = document.getElementById("adminaddspesltsmall");
-    var adminaddpasssmall = document.getElementById("adminaddpasssmall");
+    document.getElementById("recipaddunamesmall").style.display = "none";
+    document.getElementById("recipaddnamesmall").style.display = "none";
+    document.getElementById("recipaddNICsmall").style.display = "none";
+    document.getElementById("recipaddcontactsmall").style.display = "none";
+    document.getElementById("recipaddgendrsmall").style.display = "none";
+    document.getElementById("recipaddPasswordsmall").style.display = "none";
 
-    var adminaddsuccesssmall = document.getElementById("adminaddsuccesssmall");
+    document.getElementById("adminaddrecipsuccesssmall").style.display = "none";
+}
 
-    adminaddunamesmall.style.display = "none";
-    adminaddnamesmall.style.display = "none";
-    adminaddspesltsmall.style.display = "none";
-    adminaddsuccesssmall.style.display = "none";
-    adminaddpasssmall.style.display = "none";
+function admin_delete_recip(uname, nic) {
+    var des;
+    if (window.confirm("Are You Sure You Want To Delete Receptionist " + uname)) {
+        des = "1";
+    } else {
+        des = "2";
+    }
 
-    adminadduname.value = "";
-    adminaddname.value = "";
-    adminaddspeslt.value = "0";
-    adminaddpass.value = "";
+    if (des == "1") {
+        var r = new XMLHttpRequest();
+        r.onreadystatechange = function() {
+            if (r.readyState == 4) {
+                var t = r.responseText;
+                // alert(t);
+
+                location.reload();
+
+            }
+        }
+        var f = new FormData();
+        f.append("uname", uname);
+        f.append("nic", nic);
+        r.open("POST", "admindeleterecip.php", true);
+        r.send(f);
+    } else if (des == "2") {
+
+    }
+}
+
+//=========================================================================================================================
+
+function adminaddnurse() {
+    // alert("okkkk");
+
+    var uname = document.getElementById("adminaddnurseuname").value;
+    var name = document.getElementById("adminaddnursename").value;
+    var nic = document.getElementById("adminaddnursenic").value;
+    var pass = document.getElementById("adminaddnursepass").value;
+
+    var unamesmall = document.getElementById("adminaddnurseunamesmall");
+    var namesmall = document.getElementById("adminaddnursenamesmall");
+    var nicsmall = document.getElementById("adminaddnursenicsmall");
+    var passsmall = document.getElementById("adminaddnursepasssmall");
+
+    var adminaddnursesuccesssmall = document.getElementById("adminaddnursesuccesssmall");
+
+    var r = new XMLHttpRequest();
+    r.onreadystatechange = function() {
+        if (r.readyState == 4) {
+            var t = r.responseText;
+            // alert(t);
+
+            if (t == "Please enter username") {
+                adminaddnursesuccesssmall.style.display = "none";
+                unamesmall.innerHTML = t;
+                unamesmall.style.display = "block";
+                namesmall.style.display = "none";
+                nicsmall.style.display = "none";
+                passsmall.style.display = "none";
+            } else if (t == "Please enter name") {
+                adminaddnursesuccesssmall.style.display = "none";
+                unamesmall.style.display = "none";
+                namesmall.innerHTML = t;
+                namesmall.style.display = "block";
+                nicsmall.style.display = "none";
+                passsmall.style.display = "none";
+            } else if (t == "Please enter NIC") {
+                adminaddnursesuccesssmall.style.display = "none";
+                unamesmall.style.display = "none";
+                namesmall.style.display = "none";
+                nicsmall.innerHTML = t;
+                nicsmall.style.display = "block";
+                passsmall.style.display = "none";
+            } else if (t == "Please enter password") {
+                adminaddnursesuccesssmall.style.display = "none";
+                unamesmall.style.display = "none";
+                namesmall.style.display = "none";
+                nicsmall.style.display = "none";
+                passsmall.innerHTML = t;
+                passsmall.style.display = "block";
+            } else if (t == "Successfully Added") {
+                adminaddnursesuccesssmall.innerHTML = t;
+                adminaddnursesuccesssmall.style.display = "block";
+                unamesmall.style.display = "none";
+                namesmall.style.display = "none";
+                nicsmall.style.display = "none";
+                passsmall.style.display = "none";
+                location.reload();
+            } else {
+                adminaddnursesuccesssmall.innerHTML = t;
+                adminaddnursesuccesssmall.style.display = "block";
+                unamesmall.style.display = "none";
+                namesmall.style.display = "none";
+                nicsmall.style.display = "none";
+                passsmall.style.display = "none";
+            }
+
+        }
+    }
+
+    var f = new FormData();
+    f.append("uname", uname);
+    f.append("name", name);
+    f.append("nic", nic);
+    f.append("pass", pass);
+    r.open("POST", "adminaddnurse.php", true);
+    r.send(f);
+}
+
+function adminaddnurseclose() {
+    // alert("close");
+    document.getElementById("adminaddnurseuname").value = "";
+    document.getElementById("adminaddnursename").value = "";
+    document.getElementById("adminaddnursenic").value = "";
+    document.getElementById("adminaddnursepass").value = "";
+
+    document.getElementById("adminaddnurseunamesmall").style.display = "none";
+    document.getElementById("adminaddnursenamesmall").style.display = "none";
+    document.getElementById("adminaddnursenicsmall").style.display = "none";
+    document.getElementById("adminaddnursepasssmall").style.display = "none";
+
+    document.getElementById("adminaddnursesuccesssmall").style.display = "none";
+}
+
+
+function admin_update_nrs(nrsid) {
+    alert(nrsid);
+    var uname = document.getElementById(nrsid + 1).value;
+    var name = document.getElementById(nrsid + 2).value;
+    var nic = document.getElementById(nrsid + 3).value;
+
+    var r = new XMLHttpRequest();
+    r.onreadystatechange = function() {
+        if (r.readyState == 4) {
+            var t = r.responseText;
+            alert(t);
+
+        }
+    }
+    var f = new FormData();
+    f.append("id", nrsid);
+    f.append("uname", uname);
+    f.append("name", name);
+    f.append("nic", nic);
+    r.open("POST", "adminupdatenurse.php", true);
+    r.send(f);
 }

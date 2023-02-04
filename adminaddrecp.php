@@ -1,14 +1,5 @@
 <?php
 
-// uname
-// name
-// speslt
-// contact
-// gndr
-// pass
-
-echo $_POST["uname"].$_POST["name"].$_POST["speslt"].$_POST["contact"].$_POST["gndr"].$_POST["pass"];
-
 require 'connection.php';
 session_start();
 
@@ -16,18 +7,27 @@ if (empty($_POST["uname"])) {
     echo "Please enter username";
 } else if (empty($_POST["name"])) {
     echo "Please enter name";
-} else if ($_POST["speslt"]=="") {
+} else if (empty($_POST["nic"])) {
     echo "Please enter NIC";
 } else if (empty($_POST["contact"])) {
     echo "Please enter contact no";
-} else if ($_POST["gender"] == "x") {
+} else if ($_POST["gndr"] == "x") {
     echo "Please select gender";
+} else if (empty($_POST["pass"])) {
+    echo "Please enter password";
 } else {
 
+    $rs = Database::search("SELECT * FROM receptionist WHERE uname='" . $_POST["uname"] . "' OR nic='" . $_POST["nic"] . "';");
 
-    Database::search("UPDATE uname='" . $_POST["uname"] . "', NAME='" . $_POST["name"] . "', nic='" . $_POST["nic"] . "', contact='" . $_POST["contact"] . "' gender='" . $_POST["gender"] . "' WHERE res_id='" . $_POST["id"] . "';");
+    if ($rs->num_rows > 0) {
+        echo "Already Registered";
+    } else {
 
-    echo "Successfully Updated";
+        Database::iud("INSERT INTO (uname,NAME,nic,contact,pass,gender) 
+        VALUES ('".$_POST["uname"]."','".$_POST["name"]."','".$_POST["nic"]."','".$_POST["contact"]."','".$_POST["gndr"]."','".$_POST["pass"]."');");
 
-    // echo "UPDATE uname='" . $_POST["uname"] . "', NAME='" . $_POST["name"] . "', nic='" . $_POST["nic"] . "', contact='" . $_POST["contact"] . "' gender='" . $_POST["gender"] . "' WHERE res_id='" . $_POST["id"] . "';";
+        echo "Successfully Added";
+
+    }
+
 }
