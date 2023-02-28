@@ -4,7 +4,11 @@ require 'connection.php';
 
 $rs = Database::search("SELECT * FROM d_chanel_time
 INNER JOIN doctor ON d_chanel_time.doc_id=doctor.id
-WHERE doctor.id='" . $_POST["did"] . "' AND stat='1' AND DAY(d_chanel_time.date_time) > CURDATE();");
+WHERE doctor.id='" . $_POST["did"] . "' AND stat='1' AND DATE(d_chanel_time.date_time) > CURDATE();");
+
+echo "SELECT * FROM d_chanel_time
+INNER JOIN doctor ON d_chanel_time.doc_id=doctor.id
+WHERE doctor.id='" . $_POST["did"] . "' AND stat='1' AND DATE(d_chanel_time.date_time) > CURDATE();";
 
 
 if ($rs->num_rows > 0) {
